@@ -1,1 +1,17 @@
-alert('                                        Olá Recrutador!!!\n Que bom que você se interessou pelo meu Currículo Online!\n                                        Seja Bem-vindo!!')
+// Lógica 1 - Recupera dado de nome do DB local do navegador
+var nomePrincipal
+
+function recuperar(callbackNome) {
+	callbackNome(localStorage.getItem('nome'))
+}
+
+var callbackNome = function (nome) {
+	nomePrincipal = nome
+}
+
+recuperar(callbackNome)
+
+
+
+// Lógica 2 - Dia index
+var data =  new Date()
