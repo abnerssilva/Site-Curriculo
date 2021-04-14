@@ -1,0 +1,1 @@
+alert('                                        Olá Recrutador!!!\n Que bom que você se interessou pelo meu Currículo Online!\n                                        Seja Bem-vindo!!')
