@@ -18,7 +18,7 @@ h3 {
 	text-align: center;
 }
 
-.caixa1, .caixa2, .caixa3 {
+.caixa1, .caixa2, .caixa3, .caixa4 {
 	height: 100%;
 	opacity: 0.6;
 	background-repeat: no-repeat;
@@ -38,6 +38,10 @@ h3 {
 
 .caixa3 {
 	background-image: url(imagens/capa3.jpeg);
+}
+
+.caixa4 {
+	background-image: url(imagens/capa4.jpg);
 }
 
 .conteudo-caixa {
