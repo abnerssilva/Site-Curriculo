@@ -11,4 +11,4 @@ Versão 1 - Lançado em 01/03/2021.
 Versão 2 - Lançado em 15/04/2021.
 
 
-Versão 3 - em desenvolvimento.
+Versão 3 - em desenvolvimento. (A construção pode ser visualizada na branch 'next-version-development').
