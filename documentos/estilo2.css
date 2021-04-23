@@ -1,4 +1,4 @@
-html, body{
+html, body, main {
 	margin: 0;
 	font: 16px "Menlo-Regular", Consolas, Monospace, sans-serif;
 	color: #777;
@@ -18,7 +18,29 @@ h3 {
 	text-align: center;
 }
 
-.caixa1, .caixa2, .caixa3, .caixa4 {
+.caixa1 {
+	background-image: url(imagens/capa.png);
+	height: 100%;
+	opacity: 0.6;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right;
+	background-attachment: fixed;
+	position: relative;
+}
+
+.caixa2 {
+	background-image: url(imagens/capa2.png);
+	height: 100%;
+	opacity: 0.6;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+}
+
+.caixa3 {
+	background-image: url(imagens/capa3.jpeg);
 	height: 100%;
 	opacity: 0.6;
 	background-repeat: no-repeat;
@@ -28,20 +50,25 @@ h3 {
 	position: relative;
 }
 
-.caixa1 {
-	background-image: url(imagens/capa.png);
-}
-
-.caixa2 {
-	background-image: url(imagens/capa2.png);
-}
-
-.caixa3 {
-	background-image: url(imagens/capa3.jpeg);
-}
-
 .caixa4 {
 	background-image: url(imagens/capa4.jpg);
+	height: 100%;
+	opacity: 0.6;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	position: relative;
+}
+
+.caixa5 {
+	background-image: url(imagens/capa5.png);
+	height: 100%;
+	opacity: 0.6;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
 }
 
 .conteudo-caixa {
