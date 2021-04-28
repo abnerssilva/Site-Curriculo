@@ -1,26 +1,220 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-	    
-	    <title>HOME - Abner Souza - Desenvolvedor</title>
-	    <!-- Meta tags Obrigatórias-->
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	    <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="bootstrap.css">
-	    
+	<head>
+
+		<title>HOME - Abner Souza - Desenvolvedor</title>
+		<!-- Meta tags Obrigatórias-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="bootstrap.css">
+
 		<!-- JavaScript -->
-	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+			integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+			crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-	   
+
+		<script>
+
+			let nome = sessionStorage.getItem('nome')
+
+			if (!nome) {
+				nome = "inicio"
+			}
+
+			console.log(nome)
+
+			$(document).ready(function () {
+
+				if (nome === "inicio") {
+					setTimeout(function () {
+						$("#diag3").modal({ backdrop: 'static', keyboard: false })
+						$("#diag3").modal('show')
+					}, 1000)
+					$('#name').submit(function (e) {
+						e.preventDefault()
+						nome = $('#nome').val()
+						console.log(nome)
+						sessionStorage.setItem('nome', nome)
+						$('#enviar1').attr('data-dismiss', 'modal')
+						setTimeout(function () { $('#enviar1').trigger('click') }, 200)
+
+						$('#nome_digitado').html(nome)
+
+						if (nome === 'null' || null) {
+						} else {
+							setTimeout(function () {
+								$("#diag7").modal({ backdrop: 'static', keyboard: false })
+								$("#diag7").modal('show')
+							}, 1000)
+							$('#name4').submit(function (n) {
+								n.preventDefault()
+								$('#enviar5').attr('data-dismiss', 'modal')
+								setTimeout(function () { $('#enviar5').trigger('click') }, 200)
+							})
+
+							$('#noName4').submit(function (o) {
+								o.preventDefault()
+								$('#cancelar5').attr('data-dismiss', 'modal')
+								setTimeout(function () { $('#cancelar5').trigger('click') }, 200)
+
+								setTimeout(function () {
+									$("#diag8").modal({ backdrop: 'static', keyboard: false })
+									$("#diag8").modal('show')
+								}, 1000)
+								$('#name5').submit(function (m) {
+									m.preventDefault()
+									nome = $('#nome3').val()
+									console.log(nome)
+									sessionStorage.setItem('nome', nome)
+									$('#enviar6').attr('data-dismiss', 'modal')
+									setTimeout(function () { $('#enviar6').trigger('click') }, 200)
+
+									setTimeout(function () {
+										$("#diag9").modal({ backdrop: 'static', keyboard: false })
+										$("#diag9").modal('show')
+									}, 1000)
+									$('#name6').submit(function (k) {
+										k.preventDefault()
+										$('#enviar7').attr('data-dismiss', 'modal')
+										setTimeout(function () { $('#enviar7').trigger('click') }, 200)
+									})
+								})
+							})
+						}
+					})
+
+					$('#noName').submit(function (f) {
+						f.preventDefault()
+						nome = $('#nome').val('null')
+						$('#enviar1').trigger('click')
+						$('#name').submit(function (g) {
+							g.preventDefault()
+							console.log(nome)
+							sessionStorage.setItem('nome', nome)
+							$('#enviar1').attr('data-dismiss', 'modal')
+							setTimeout(function () {
+								$('#cancelar3').trigger('click')
+								$('#enviar1').trigger('click')
+							}, 300)
+						})
+					})
+
+
+					$('#noName').submit(function (h) {
+						h.preventDefault()
+
+						if (nome === 'null' || null) {
+							setTimeout(function () {
+								$("#diag4").modal({ backdrop: 'static', keyboard: false })
+								$("#diag4").modal('show')
+							}, 1000)
+							$('#noName2').submit(function (i) {
+								i.preventDefault()
+								nome = 'Recrutador(a)'
+								console.log(nome)
+								sessionStorage.setItem('nome', nome)
+								$('#enviar2').attr('data-dismiss', 'modal')
+								setTimeout(function () { $('#enviar2').trigger('click') }, 200)
+
+								setTimeout(function () {
+									$("#diag6").modal({ backdrop: 'static', keyboard: false })
+									$("#diag6").modal('show')
+								}, 1000)
+								$('#name3').submit(function (k) {
+									k.preventDefault()
+									$('#enviar4').attr('data-dismiss', 'modal')
+									setTimeout(function () { $('#enviar4').trigger('click') }, 200)
+								})
+							})
+
+							$('#noName3').submit(function (l) {
+								l.preventDefault()
+								$('#cancelar4').attr('data-dismiss', 'modal')
+								setTimeout(function () { $('#cancelar4').trigger('click') }, 200)
+
+								setTimeout(function () {
+									$("#diag5").modal({ backdrop: 'static', keyboard: false })
+									$("#diag5").modal('show')
+								}, 1000)
+								$('#name2').submit(function (m) {
+									m.preventDefault()
+									nome = $('#nome2').val()
+									console.log(nome)
+									sessionStorage.setItem('nome', nome)
+									$('#enviar3').attr('data-dismiss', 'modal')
+									setTimeout(function () { $('#enviar3').trigger('click') }, 200)
+
+									$('#nome_digitado').html(nome)
+
+									setTimeout(function () {
+										$("#diag7").modal({ backdrop: 'static', keyboard: false })
+										$("#diag7").modal('show')
+									}, 1000)
+									$('#name4').submit(function (n) {
+										n.preventDefault()
+										$('#enviar5').attr('data-dismiss', 'modal')
+										setTimeout(function () { $('#enviar5').trigger('click') }, 200)
+									})
+
+									$('#noName4').submit(function (o) {
+										o.preventDefault()
+										$('#cancelar5').attr('data-dismiss', 'modal')
+										setTimeout(function () { $('#cancelar5').trigger('click') }, 200)
+
+										setTimeout(function () {
+											$("#diag8").modal({ backdrop: 'static', keyboard: false })
+											$("#diag8").modal('show')
+										}, 1000)
+										$('#name5').submit(function (m) {
+											m.preventDefault()
+											nome = $('#nome3').val()
+											console.log(nome)
+											sessionStorage.setItem('nome', nome)
+											$('#enviar6').attr('data-dismiss', 'modal')
+											setTimeout(function () { $('#enviar6').trigger('click') }, 200)
+
+											setTimeout(function () {
+												$("#diag9").modal({ backdrop: 'static', keyboard: false })
+												$("#diag9").modal('show')
+											}, 1000)
+											$('#name6').submit(function (k) {
+												k.preventDefault()
+												$('#enviar7').attr('data-dismiss', 'modal')
+												setTimeout(function () { $('#enviar7').trigger('click') }, 200)
+											})
+										})
+									})
+
+								})
+
+							})
+						}
+
+					})
+
+				} else {
+					nome = sessionStorage.getItem('nome')
+					window.open('index3.html', '_self')
+				}
+			})
+
+		</script>
+
 	</head>
 
 	<body id="body_index2" class="bg-dark">
 		<section class="conteiner">
-            <div class="row">
+			<div class="row">
 				<div class="col-sm-12">
 					<div class="modal fade" id="diag3" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
@@ -30,15 +224,20 @@
 								</header>
 								<main class="modal-body input-group">
 									Para que sua experiência seja incrível, digite seu nome:<br><br>
-									<form id="name" class="input-group-prepend d-flex" action="" method="get"><span class="input-group-text d-flex">Nome</span>
-									<input style="width: 320px;" id="nome" name="nome" class="form-control d-flex" type="text" placeholder="Digite seu nome aqui" />
-									<button class="btn btn-success d-flex" type="submit" value="true" id="enviar1">Enviar</button></form>
+									<form id="name" class="input-group-prepend d-flex" action="" method="get"><span
+											class="input-group-text d-flex">Nome</span>
+										<input style="width: 320px;" id="nome" name="nome" class="form-control d-flex"
+											type="text" placeholder="Digite seu nome aqui" />
+										<button class="btn btn-success d-flex" type="submit" value="true"
+											id="enviar1">Enviar</button>
+									</form>
 								</main>
 								<footer class="modal-footer d-block">
-                                    <form id="noName">
-                                        Se preferir, clique em FECHAR para seguir sem identificação.<br><br>
-                                        <button class="btn btn-secondary d-block ml-auto" type="submit" data-dismiss="modal" id="cancelar3">Fechar</button>
-                                </form>
+									<form id="noName">
+										Se preferir, clique em FECHAR para seguir sem identificação.<br><br>
+										<button class="btn btn-secondary d-block ml-auto" type="submit" value="true"
+											id="cancelar3">Fechar</button>
+									</form>
 								</footer>
 							</div>
 						</div>
@@ -46,23 +245,28 @@
 				</div>
 			</div>
 
-            <div class="row">
+			<div class="row">
 				<div class="col-sm-12">
 					<div class="modal fade" id="diag4" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
-									<h5>Abner solicita:</h5>
+									<h5>Abner pergunta:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Você optou por não digitar seu nome.<br><br>Tem certeza que deseja continuar sem se identificar?<br><br>
-								
+									Você optou por não digitar seu nome.<br><br>Tem certeza que deseja continuar sem se
+									identificar?<br><br>
+
 								</main>
 								<footer class="modal-footer">
-                                    <Form id="noName2 d-flex ml-auto">
-                                        <button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
-                                        <button class="btn btn-secondary" type="reset" value="false" id="cancelar4">Não</button>
-                                    </Form>
+									<Form id="noName2" class="d-flex mr-auto">
+										<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
+									</Form>
+
+									<Form id="noName3" class="d-flex ml-auto">
+										<button class="btn btn-secondary" type="submit" value="true"
+											id="cancelar4">Não</button>
+									</Form>
 								</footer>
 							</div>
 						</div>
@@ -70,7 +274,7 @@
 				</div>
 			</div>
 
-            <div class="row">
+			<div class="row">
 				<div class="col-sm-12">
 					<div class="modal fade" id="diag5" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
@@ -79,35 +283,42 @@
 									<h5>Abner solicita:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Digite seu nome novamente:<br><br>
-									<form id="name2" class="input-group-prepend d-flex" action="" method="get"><span class="input-group-text d-flex">Nome</span>
-                                        <input style="width: 320px;" id="nome2" name="nome" class="form-control d-flex" type="text" placeholder="Digite seu nome aqui" />
+									Então digite seu nome:<br><br>
+									<form id="name2" class="input-group-prepend d-flex" action="" method="get"><span
+											class="input-group-text d-flex">Nome</span>
+										<input style="width: 400px;" id="nome2" name="nome" class="form-control d-flex"
+											type="text" placeholder="Digite seu nome aqui" />
 								</main>
 								<footer class="modal-footer d-block">
-									<button class="btn btn-success d-block ml-auto" type="submit" value="true" id="enviar3">Enviar</button>
-								</footer></form>
+									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+										id="enviar3">Enviar</button>
+								</footer>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-            <div class="row">
+			<div class="row">
 				<div class="col-sm-12">
 					<div class="modal fade" id="diag6" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
-									<h5>Abner solicita:</h5>
+									<h5>Abner lamenta:</h5>
 								</header>
 								<main class="modal-body input-group">
 									Que Pena! :( Então te chamarei apenas de Recrutador(a), OK?<br>
-								
+
 								</main>
 								<footer class="modal-footer d-block">
-                                    <form id="name3">
-									    <button class="btn btn-success d-block ml-auto" data-dismiss="modal" type="submit" value="true" id="enviar4">OK</button>
-                                    </form>
+									<form id="name3">
+										<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+											id="enviar4">
+											<a style="color: white; text-decoration: none;" href="index3.html">OK</a>
+										</button>
+									</form>
 								</footer>
 							</div>
 						</div>
@@ -115,67 +326,93 @@
 				</div>
 			</div>
 
-            <div class="row">
+			<div class="row">
 				<div class="col-sm-12">
 					<div class="modal fade" id="diag7" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content d-flex" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner pergunta:</h5>
+								</header>
+								<main class="modal-body input-group">
+									<p style="height: 18px;">Você digitou:&nbsp;</p><em><strong><span id="nome_digitado"
+												style="height: 18px;"></span></strong></em><span>.</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span>Seu nome está correto?</span><br>
+
+								</main>
+								<footer class="modal-footer">
+									<Form id="name4" class="d-flex mr-auto">
+										<button class="btn btn-success" type="submit" value="true" id="enviar5">
+											<a style="color: white; text-decoration: none;" href="index3.html">Sim</a>
+										</button>
+									</form>
+
+									<Form id="noName4" class="d-flex ml-auto">
+										<button class="btn btn-secondary" type="submit" value="true"
+											id="cancelar5">Não</button>
+									</Form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag8" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
 									<h5>Abner solicita:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Você digitou: <em><strong><span id="nome_digitado"></span></strong></em>.<br><br>Seu nome está correto?<br>
-								
+									Digite seu nome novamente:<br><br>
+									<form id="name5" class="input-group-prepend d-flex" action="" method="get"><span
+											class="input-group-text d-flex">Nome</span>
+										<input style="width: 400px;" id="nome3" name="nome" class="form-control d-flex"
+											type="text" placeholder="Digite seu nome aqui" />
 								</main>
 								<footer class="modal-footer d-block">
-									<button class="btn btn-success" type="submit" value="true" id="enviar5">Sim</button>
-									<button class="btn btn-secondary d-block ml-auto" data-dismiss="modal" value="false" id="cancelar5">Não</button>
+									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+										id="enviar6">Enviar</button>
 								</footer>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag9" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner informa:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Seu nome foi corrigido com sucesso! ;)<br>
+
+								</main>
+								<footer class="modal-footer d-block">
+									<form id="name6">
+										<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+											id="enviar7">
+											<a style="color: white; text-decoration: none;" href="index3.html">Home</a>
+										</button>
+									</form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
-    </body>
-    <script>
-
-        var nome = localStorage.getItem('nome')
-
-        if (!nome) {
-        nome = "inicio"
-        }
-
-        console.log(nome)
-
-        $(document).ready(function(){
-
-            if (nome=="inicio"){
-                setTimeout(function(){ $("#diag3").modal('show')}, 1000)
-                $('#name').submit(function(e){
-                    e.preventDefault()
-                    nome = $('#nome').val()
-                    console.log(nome)
-                    sessionStorage.setItem('nome', nome)
-                    $('#enviar1').attr('data-dismiss', 'modal')
-                    setTimeout(function(){ $('#enviar1').trigger('click')}, 200)
-
-                })
-            } else {
-                setTimeout(function(){ $("#diag5").modal('show')}, 1000)
-                $('#name2').submit(function(e){
-                    e.preventDefault()
-                    nome = $('#nome2').val()
-                    console.log(nome)
-                    localStorage.setItem('nome', nome)
-                    $('#enviar3').attr('data-dismiss', 'modal')
-                    setTimeout(function(){ $('#enviar3').trigger('click')}, 200)
-                })
-            }
-
-            
-        })
-        
-    </script>
+	</body>
 </html>
