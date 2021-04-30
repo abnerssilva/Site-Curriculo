@@ -71,6 +71,17 @@ h3 {
 	position: relative;
 }
 
+.caixa6 {
+	background-image: url(imagens/capa6.jpg);
+	height: 100%;
+	opacity: 0.6;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	position: relative;
+}
+
 .conteudo-caixa {
 	position: absolute;
 	top: 60%;
