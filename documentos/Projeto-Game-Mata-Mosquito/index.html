@@ -2,7 +2,7 @@
 <html lang="pt-BR">
     <head>
 
-        <title>Game - Mata Mosquito</title>
+        <title>Iniciar - Game Mata Mosquito </title>
 
         <!-- Meta Tag's Obrigatórias -->
         <meta charset="UTF-8">
@@ -21,34 +21,17 @@
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 	   
-        <script>
-            function iniciarJogo() {
-                let nivel = document.getElementById('nivel').value
-
-                if(nivel === '') {
-                    setTimeout(function(){ 
-                        $("#diag1").modal({backdrop: 'static', keyboard: false})
-                        $("#diag1").modal('show')
-                        }, 1000)
-
-                        $('#cancelar1').click(function(){
-				            $("#diag1").modal('hide')
-                        })
-	
-                    return false
-                } else {
-                    $('#inicio').click(function(){
-				        setTimeout(function () { nivel = $("#nivel").val() }, 300)
-                        sessionStorage.setItem('level', nivel)
-                        setTimeout(function () { window.open('app.html', '_self') }, 500) 
-                        })
-                }
-            }
-        </script>
+        
 
     </head>
 
     <body>
+
+        <audio id="erro" src="imagens/erro_windows.mp3"></audio>
+
+        <audio id="playAudio" autoplay loop>
+            <source src="imagens/sonic_inicio.mp3" type="audio/mp3">
+        </audio>
         
         <main id="conteiner">
             <div class="row">
@@ -68,7 +51,7 @@
                                 <option value="easy">Fácil</option>
                                 <option value="medium">Normal</option>
                                 <option value="hard">Difício</option>
-                                <option value="very-hard">John Rambo</option>
+                                <option value="very-hard">Vingadores</option>
                             </select>
                     </div>
                 </div>
@@ -83,10 +66,10 @@
                     </form>
                 </div>
             </div>
-
-            <div class="row">
+            
+            <div id="pop0" class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag1" tabindex="-1" role="dialog">
+					<div class="modal fade" id="diag0" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px rgb(131, 116, 30);">
 								<header class="modal-header">
@@ -94,6 +77,28 @@
 								</header>
 								<main class="modal-body text-center">
 									Olá!!!<br><br>Você deve selecionar um nível válido para iniciar o jogo!<br><br>Tenha um Bom Jogo!<br>Boa Sorte!!
+								</main>
+								<footer class="modal-footer">
+									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar0">
+										Fechar
+									</button>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <div id="pop1" class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag1" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px rgb(131, 116, 30);">
+								<header class="modal-header">
+									<h5>Saudação de Abner para o visitante:</h5>
+								</header>
+								<main class="modal-body text-center">
+									Olá!!!<br>Que bom que você se interessou pelo meu Jogo!<br>Seja Bem-vindo(a) e tenha um Bom Jogo!!
 								</main>
 								<footer class="modal-footer">
 									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar1">
@@ -106,8 +111,110 @@
 				</div>
 			</div>
 
+            <div id="pop5" class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag5" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-sm">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px rgb(131, 116, 30);">
+								<header class="modal-header">
+									<h5>Abner informa:</h5>
+								</header>
+								<main class="modal-body text-center">
+									Selecione seu nível e divirta-se!!
+								</main>
+								<footer class="modal-footer">
+									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar5">
+										OK
+									</button>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
         </main>
 
     </body>
+
+    <script>
+
+    // Iniciando o Jogo (Index)
+        // Validação de Nível Selecionado
+        let nivel
+
+        function iniciarJogo() {
+            nivel = document.getElementById('nivel').value
+
+            let somErro = document.getElementById('erro')
+
+            if(nivel === '') {
+                setTimeout(function(){ 
+                    $("#diag0").modal({backdrop: 'static', keyboard: false})
+                    $("#diag0").modal('show')
+                    somErro.play()
+                    }, 1000)
+
+                    $('#cancelar0').click(function(){
+                        $("#diag0").modal('hide')
+                    })
+
+                return false
+            } else {
+                $('#inicio').click(function(){
+                    setTimeout(function () { nivel = $("#nivel").val() }, 300)
+                    sessionStorage.setItem('level', nivel)
+                    setTimeout(function () { window.open('app.html', '_self') }, 500) 
+                    })
+            }
+        }
+
+        // Validação para saber se é Início ou Reinício e o Navegador do usuário
+        let inicio = 'inicio'
+
+        let reinicio = sessionStorage.getItem('reinicio')
+                            if(!reinicio) {
+                            reinicio = 'inicio'
+                }
+        
+        let navegadores = "";
+
+        let playAudio = document.getElementById('playAudio')
+
+        $(document).ready(function(){
+             
+            if(inicio == reinicio) {
+                playAudio.removeAttribute('autoplay')
+                setTimeout(function(){ 
+                    $("#diag1").modal({backdrop: 'static', keyboard: false})
+                    $("#diag1").modal('show')
+                }, 1000)
+
+                    $('#cancelar1').click(function(){
+                        sessionStorage.setItem('reinicio', true)
+                        $("#diag1").modal('hide')
+                        execSom()
+                    })
+                
+            } else if (navegadores = navigator.userAgent.indexOf('Chrome') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
+                setTimeout(function(){ 
+                    $("#diag5").modal({backdrop: 'static', keyboard: false})
+                    $("#diag5").modal('show')
+                }, 1000)
+
+                    $('#cancelar5').click(function(){
+                    $("#diag5").modal('hide')
+                    execSom()
+                })
+
+            } 
+        })
+
+        function execSom() {
+            playAudio.play()
+        }
+
+    </script>
     
 </html>
+
