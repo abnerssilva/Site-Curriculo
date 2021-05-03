@@ -50,7 +50,7 @@
                                 <option value="">-- Selecione o Nível --</option>
                                 <option value="easy">Fácil</option>
                                 <option value="medium">Normal</option>
-                                <option value="hard">Difícil</option>
+                                <option value="hard">Difício</option>
                                 <option value="very-hard">Vingadores</option>
                             </select>
                     </div>
@@ -169,7 +169,7 @@
             }
         }
 
-        // Validação para saber se é Início ou Reinício e o Navegador do usuário
+        // Validação para saber se é Início ou Reinício
         let inicio = 'inicio'
 
         let reinicio = sessionStorage.getItem('reinicio')
@@ -184,7 +184,6 @@
         $(document).ready(function(){
              
             if(inicio == reinicio) {
-                playAudio.removeAttribute('autoplay')
                 setTimeout(function(){ 
                     $("#diag1").modal({backdrop: 'static', keyboard: false})
                     $("#diag1").modal('show')
@@ -196,7 +195,7 @@
                         execSom()
                     })
                 
-            } else if (navegadores = navigator.userAgent.indexOf('Chrome') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
+            } else {
                 setTimeout(function(){ 
                     $("#diag5").modal({backdrop: 'static', keyboard: false})
                     $("#diag5").modal('show')

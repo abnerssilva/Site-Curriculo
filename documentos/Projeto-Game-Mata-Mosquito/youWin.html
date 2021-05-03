@@ -29,7 +29,7 @@
 
     <body>
 
-        <audio style="opacity: 0.4; position: absolute; bottom: 0px; right: 0px;" id="playAudio" autoplay>
+        <audio id="playAudio" autoplay>
             <source src="imagens/mario_win.mp3" type="audio/mp3">
         </audio>
         
@@ -83,35 +83,16 @@
 
     <script>
 
-        let navegadores
-
         $(document).ready(function(){
+                setTimeout(function(){ 
+                    $("#diag6").modal({backdrop: 'static', keyboard: false})
+                    $("#diag6").modal('show')
+                }, 200)
 
-            navegadores = "";
-                    
-            function identificaRestricaoBrowser() {
-                if (navegadores = navigator.userAgent.indexOf('Chrome') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
-                    setTimeout(function(){ 
-                        $("#diag6").modal({backdrop: 'static', keyboard: false})
-                        $("#diag6").modal('show')
-                        }, 200)
-
-                        $('#cancelar6').click(function(){
-                            $("#diag6").modal('hide')
-                            execSom()
-                        })
-                    
-                }
-            } 
-
-            identificaRestricaoBrowser()
-
-                if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.indexOf('Safari') > -1)) {safari = false;}
-                if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.toLowerCase().indexOf('op') > -1)) {chrome = false;}
-                if ((navigator.userAgent.indexOf('Safari') > -1) && (navigator.userAgent.indexOf('Epiphany') > -1)) {safari = false;}
-
-            
-
+                    $('#cancelar6').click(function(){
+                        $("#diag6").modal('hide')
+                        execSom()
+                     })
         })
 
         $('#reinicio').mousedown(function(){
@@ -123,10 +104,6 @@
 
         function execSom() {
             playAudio.play()
-        }
-
-        function pauseSom() {
-            playAudio.pause()
         }
 
     </script>

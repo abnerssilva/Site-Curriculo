@@ -25,9 +25,11 @@
 
     </head>
 
-    <body onresize="ajusteTela()" onmousedown="execSom()">
+    <body onresize="ajusteTela()">
         
-        
+        <audio src="imagens/mario_fase.mp3" autoplay id="playAudio"></audio>
+            
+        <audio id="raquete" src="imagens/som_raquete.aiff"></audio>
 
         <main id="conteiner1">
             
@@ -71,41 +73,36 @@
 				</div>
 			</div>
 
-            <audio id="raquete" src="imagens/som_raquete.aiff"></audio>
-
             <form class="d-flex justify-content-center">
                 <button id="pause" type="button" class="btn btn-light btn-sm d-flex" style="opacity: 0.4;">
-                    Pause
+                    Pausar Jogo
                 </button>
             </form>
 
-        </main>
-        
-        <audio src="imagens/mario_fase.mp3" autoplay id="playAudio">
-            
-        </audio>
-
-        <div id="pop3" class="row">
-            <div class="col-sm-12">
-                <div class="modal fade" id="diag3" tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content" style="box-shadow: 20px 20px 5px rgb(131, 116, 30);">
-                            <header class="modal-header">
-                                <h5>Abner informa:</h5>
-                            </header>
-                            <main class="modal-body text-center">
-                                Jogo Pausado
-                            </main>
-                            <footer class="modal-footer">
-                                <button class="btn btn-secondary" data-dismiss="modal" id="cancelar3">
-                                    Voltar
-                                </button>
-                            </footer>
+            <div id="pop3" class="row">
+                <div class="col-sm-12">
+                    <div class="modal fade" id="diag3" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content" style="box-shadow: 20px 20px 5px rgb(131, 116, 30);">
+                                <header class="modal-header">
+                                    <h5>Abner informa:</h5>
+                                </header>
+                                <main class="modal-body text-center">
+                                    Jogo Pausado
+                                </main>
+                                <footer class="modal-footer">
+                                    <button class="btn btn-secondary" data-dismiss="modal" id="cancelar3">
+                                        Voltar
+                                    </button>
+                                </footer>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+        </main>
+
     </body>
     
     <script>
@@ -124,7 +121,7 @@
         let playAudio = document.getElementById('playAudio')
 
         if (level === 'very-hard') {
-            //750
+            //Altera a Música Tema
             playAudio.removeAttribute('src')
             var hardMusic = document.createAttribute('src')
             hardMusic.value = 'imagens/mario_vingadores.mp3'

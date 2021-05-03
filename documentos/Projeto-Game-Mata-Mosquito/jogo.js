@@ -15,8 +15,7 @@ ajusteTela()
 // Elemento de vidas
 let vidas = 1
 
-// Random de Posição dos Mosquitos
-
+// Random de Posição dos Mosquitos + Cenário de Vidas
 function posicaoMosquito() {
 
     // Remover o mosquito, caso exista
@@ -33,6 +32,7 @@ function posicaoMosquito() {
         }
     }
 
+    // Matriz de Posição do Mosquito
     let posicaoX = Math.floor(Math.random() * largura) - 70
     let posicaoY = Math.floor(Math.random() * altura) - 70
 
@@ -150,26 +150,6 @@ setTimeout(function () {
 // Música Tema
 
 $(document).ready(function () {
-    let navegadores = "";
-
-    if (navegadores = navigator.userAgent.toLowerCase().indexOf('op') > -1) {
-        $('#pop2').remove()
-
-        setTimeout(function () {
-            iniciaCronometro()
-            iniciaCriaMosquito()
-        }, 500)
-
-    } else if (navegadores = navigator.userAgent.indexOf('MSIE') > -1) {
-        $('#pop2').remove()
-
-        setTimeout(function () {
-            iniciaCronometro()
-            iniciaCriaMosquito()
-        }, 500)
-
-    } else if (navegadores = navigator.userAgent.indexOf('Firefox') > -1) {
-
         clearInterval(cronometro)
         clearInterval(criaMosquito)
 
@@ -182,44 +162,6 @@ $(document).ready(function () {
             $("#diag2").modal('hide')
             iniciaCronometro()
             iniciaCriaMosquito()
+            execSom()
         })
-
-    } else if (navegadores = navigator.userAgent.indexOf('Epiphany') > -1) {
-        $('#pop2').remove()
-
-        setTimeout(function () {
-            iniciaCronometro()
-            iniciaCriaMosquito()
-        }, 500)
-
-    } else if (navegadores = navigator.userAgent.indexOf('Chrome') > -1) {
-
-        clearInterval(cronometro)
-        clearInterval(criaMosquito)
-
-        setTimeout(function () {
-            $("#diag2").modal({ backdrop: 'static', keyboard: false })
-            $("#diag2").modal('show')
-        }, 500)
-
-        $('#cancelar2').click(function () {
-            $("#diag2").modal('hide')
-            iniciaCronometro()
-            iniciaCriaMosquito()
-        })
-
-    } else if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {
-        $('#pop2').remove()
-
-        setTimeout(function () {
-            iniciaCronometro()
-            iniciaCriaMosquito()
-        }, 500)
-
-
-    }
-
-    if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.indexOf('Safari') > -1)) safari = false;
-    if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.toLowerCase().indexOf('op') > -1)) chrome = false;
-    if ((navigator.userAgent.indexOf('Safari') > -1) && (navigator.userAgent.indexOf('Epiphany') > -1)) safari = false;
 })
