@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+:root {
+  --primary-color: rgb(129, 43, 28);
+  --primary-color-darker: rgb(99, 3, 3);
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--primary-color);
+  font-family: 'Open sans', sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+.tarefas-fazer, .tarefas-feitas {
+  height: 100%;
+}
+
+.fazer {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transform: translateX(-73px);
+}
+
+.feita {
+  animation-name: slide2;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transform: translateX(-472px);
+}
+
+.container {
+  width: 80%;
+  max-width: 1260px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.relogio {
+  font-size: 4em;
+}
+
+.pausado {
+  color: red;
+}
+
+.load {
+  animation: load linear 1s; 
+}
+
+.loadFrames {
+  animation: loadFrames 1s;
+}
+
+@keyframes load {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadFrames {
+  0% {
+    transform: translate(0px) scale(.1);
+  }
+}
+
+p {
+  font-size: 0.8em;
+}
+
+div#tomates ul {
+  text-decoration: none;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: var(--primary-color-darker);
+}
+
+h3 {
+  font-size: 1.5em;
+  color: var(--primary-color-darker);
+}
+
+li {
+  font-size: 0.8em;
+  opacity: 0;
+}
+
+li.fazer {
+  opacity: 0;
+}
+
+i.play {
+  color: gray;
+  cursor: pointer;
+}
+
+i.playGreen {
+  color: rgb(13, 131, 13);
+  cursor: pointer;
+}
+
+i.play:hover{
+  color: rgb(13, 131, 13);
+}
+
+i.pause {
+  color: gray;
+  cursor: pointer;
+}
+
+i.pauseRed {
+  color: red;
+  cursor: pointer;
+}
+
+i.pause:hover{
+  color: red;
+}
+
+i.redo {
+  color: gray;
+  cursor: pointer;
+}
+
+i.redoBlue {
+  color: blue;
+  cursor: pointer;
+}
+
+i.redo:hover{
+  color: blue;
+}
+
+i.addPlus {
+  color: rgb(110, 110, 240);
+  cursor: pointer;
+}
+
+i.close {
+  color: gray;
+  cursor: pointer;
+}
+
+i#fechado:hover {
+  color: red;
+}
+
+i.done1 {
+  color: gray;
+  cursor: pointer;
+}
+
+i.done1:hover {
+  color: rgb(13, 131, 13);
+}
+
+i.done2 {
+  color: rgb(13, 131, 13);
+}
+
+@keyframes slide {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide2 {
+  From {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
