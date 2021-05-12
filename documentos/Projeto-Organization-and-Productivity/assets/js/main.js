@@ -535,7 +535,7 @@
           <i class="done1 far fa-check-square fa-sm mt-1 pt-1 mx-3 float-right" aria-hidden="true"></i>
         </a>
         <a class="apagar ml-2 mt-2 d-flex float-right">
-          <i class="close fas fa-times-circle fa-sm mx-2 d-flex float-right" aria-hidden="true"></i>
+          <i id="fechado" class="close fas fa-times-circle fa-sm mx-2 d-flex float-right" aria-hidden="true"></i>
         </a>`)
       tarefasFazer.appendChild(li)
       limpaInput()
@@ -579,7 +579,7 @@
           <i class="done2 fas fa-check-square fa-sm mt-1 pt-1 mx-3 float-right" aria-hidden="true"></i>
         </a>
         <a class="apagar ml-2 mt-2 d-flex float-right">
-          <i class="close fas fa-times-circle fa-sm mx-2 d-flex float-right" aria-hidden="true"></i>
+          <i id="fechado" class="close fas fa-trash-alt fa-sm mx-2 d-flex float-right" aria-hidden="true"></i>
         </a>`)
       $(tarefasFeitas).prepend(li)
       li.getElementsByClassName('apagar')[0].addEventListener('click', removeTarefa)
@@ -592,7 +592,7 @@
         salvarTarefas()
         //localStorage.clear()
     	})
- 	  })
+ 	  }) 
   } 
   listaTarefas()
 }());
