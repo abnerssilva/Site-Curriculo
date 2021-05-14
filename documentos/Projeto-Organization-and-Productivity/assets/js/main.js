@@ -567,8 +567,11 @@
         criaTarefa(tarefa);
       }
     }
-    adicionaTarefasSalvas();
-
+    try {
+      adicionaTarefasSalvas();
+    } catch (err) {
+      
+    }
     // Função de criação das tarefas concluídas
     function criaTarefaFeita(textoInput) {
       const li = document.createElement('li')

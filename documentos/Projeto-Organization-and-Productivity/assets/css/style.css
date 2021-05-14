@@ -39,14 +39,14 @@ body {
 .container {
   width: 80%;
   max-width: 1260px;
-  margin: 50px auto;
+  margin: 30px auto;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
 }
 
 .relogio {
-  font-size: 4em;
+  font-size: 3.5em;
 }
 
 .pausado {
@@ -99,6 +99,20 @@ li {
 
 li.fazer {
   opacity: 0;
+}
+
+header {
+  color: #a3a389;
+  width: 80%;
+  max-width: 1260px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+aside {
+  width: 100%;
 }
 
 i.play {
