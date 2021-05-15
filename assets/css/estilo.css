@@ -15,17 +15,6 @@ body {
 	text-align: justify;
 }
 
-header#home div#nav-princ ul.navbar-nav li.home a.nav-link,
-header#obj div#nav-princ ul.navbar-nav li.obj a.nav-link,
-header#sobre div#nav-princ ul.navbar-nav li.sobre a.nav-link,
-header#formacao div#nav-princ ul.navbar-nav li.formacao a.nav-link,
-header#exper div#nav-princ ul.navbar-nav li.experiencia a.nav-link,
-header#quali div#nav-princ ul.navbar-nav li.quali a.nav-link,
-header#contato div#nav-princ ul.navbar-nav li.contato a.nav-link {
-	color: #44cade;
-	cursor: text;
-}
-
 #conteiner {
 	width: 96%;
 	margin: 5px auto;
@@ -35,7 +24,7 @@ header#contato div#nav-princ ul.navbar-nav li.contato a.nav-link {
 #banner {
 	width: 100%;
 	height: 320px;
-	background: url(imagens/banner-prog.jpeg) no-repeat center;
+	background: url(../media/imagens/banner-prog.jpeg) no-repeat center;
 	line-height: 320px;
 }
 

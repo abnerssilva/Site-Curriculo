@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-	    
-	    <title>HOME - Abner Souza - Desenvolvedor</title>
-	    <!-- Meta tags Obrigatórias-->
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	    <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="bootstrap.css">
-	    
+	<head>
+
+		<title>HOME - Abner Souza - Desenvolvedor</title>
+		<!-- Meta tags Obrigatórias-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="./assets/css/bootstrap.css">
+
 		<!-- JavaScript -->
-	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+			integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+			crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-	   
+
+		<script src="./assets/js/main.js"></script>
+
 	</head>
 
 	<body id="body_index" class="bg-dark">
 		<section class="conteiner">
+
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="modal fade" id="diag1" tabindex="-1" role="dialog">
@@ -29,7 +39,8 @@
 									<h5>Saudação de Abner para o visitante:</h5>
 								</header>
 								<main class="modal-body text-center">
-									Olá!!!<br>Que bom que você se interessou pelo meu Currículo Online!<br>Seja Bem-vindo(a)!!
+									Olá!!!<br>Que bom que você se interessou pelo meu Currículo Online!<br>Seja
+									Bem-vindo(a)!!
 								</main>
 								<footer class="modal-footer">
 									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar1">
@@ -51,17 +62,22 @@
 									<h5>Abner recomenda:</h5>
 								</header>
 								<main class="modal-body text-justify">
-									Identifiquei que você está usando o navegador <em><strong><span id="browser"></span></strong></em> da Apple, 
+									Identifiquei que você está usando o navegador <em><strong><span
+												id="browser"></span></strong></em> da Apple,
 									porém, este site não funciona muito bem nesse navegador.<br><br>
-									Recomendo que você troque de navegador ou, se preferir continuar no SAFARI, realize o procedimento abaixo 
-									<strong style="text-transform: uppercase;">antes de fechar</strong> esse pop-up:<br><br><br>
-									Nos menus, clique em SAFARI > PREFERENCIAS > AVANÇADO > Habilite 'Mostra menu Desenvolvedor na barra de menus'.<br>
-									Depois clique em DESENVOLVEDOR na barra de menus e Habilite 'Desativar restições de Arquivos Locais' para que você 
+									Recomendo que você troque de navegador ou, se preferir continuar no SAFARI, realize o
+									procedimento abaixo
+									<strong style="text-transform: uppercase;">antes de fechar</strong> esse
+									pop-up:<br><br><br>
+									Nos menus, clique em SAFARI > PREFERENCIAS > AVANÇADO > Habilite 'Mostra menu
+									Desenvolvedor na barra de menus'.<br>
+									Depois clique em DESENVOLVEDOR na barra de menus e Habilite 'Desativar restições de
+									Arquivos Locais' para que você
 									possa ter uma boa experiência ao navegar pelo conteúdo.<br><br>
 								</main>
 								<footer class="modal-footer">
 									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar2">
-										<a style="color: white; text-decoration: none;" href="index2.html">Ir para Home</a>
+										Fechar
 									</button>
 								</footer>
 							</div>
@@ -69,57 +85,206 @@
 					</div>
 				</div>
 			</div>
-		</section>	
-		
-	</body> 
-	<script>
 
-		let navegadores = "";
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag3" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner solicita:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Para que sua experiência seja incrível, digite seu nome:<br><br>
+									<form id="name" class="input-group-prepend d-flex" action="" method="get"><span
+											class="input-group-text d-flex">Nome</span>
+										<input style="width: 320px;" id="nome" name="nome" class="form-control d-flex"
+											type="text" placeholder="Digite seu nome aqui" />
+										<button class="btn btn-success d-flex" type="submit" value="true"
+											id="enviar1">Enviar</button>
+									</form>
+								</main>
+								<footer class="modal-footer d-block">
+									<form id="noName">
+										Se preferir, clique em FECHAR para seguir sem identificação.<br><br>
+										<button class="btn btn-secondary d-block ml-auto" type="submit" value="true"
+											id="cancelar3">Fechar</button>
+									</form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-			if (navegadores = navigator.userAgent.toLowerCase().indexOf('op') > -1) {
-				$('#pop2').remove();
-				$('#cancelar1').html('<a style="color: white; text-decoration: none;" href="index2.html">Ir para Home</a>')
-			}else if (navegadores = navigator.userAgent.indexOf('MSIE') > -1) {
-				$('#pop2').remove();
-				$('#cancelar1').html('<a style="color: white; text-decoration: none;" href="index2.html">Ir para Home</a>')
-			}else if (navegadores = navigator.userAgent.indexOf('Firefox') > -1) {
-				$('#pop2').remove();
-				$('#cancelar1').html('<a style="color: white; text-decoration: none;" href="index2.html">Ir para Home</a>')
-			}else if (navegadores = navigator.userAgent.indexOf('Epiphany') > -1) {
-				$('#pop2').remove();
-				$('#cancelar1').html('<a style="color: white; text-decoration: none;" href="index2.html">Ir para Home</a>')
-			}else if (navegadores = navigator.userAgent.indexOf('Chrome') > -1) {
-				$('#pop2').remove();
-				$('#cancelar1').html('<a style="color: white; text-decoration: none;" href="index2.html">Ir para Home</a>')
-			}else if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {
-				$('#browser').html('SAFARI');
-			}
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag4" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner pergunta:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Você optou por não digitar seu nome.<br><br>Tem certeza que deseja continuar sem se
+									identificar?<br><br>
 
-			if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.indexOf('Safari') > -1)) safari = false;
-			if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.toLowerCase().indexOf('op') > -1)) chrome = false;
-			if ((navigator.userAgent.indexOf('Safari') > -1) && (navigator.userAgent.indexOf('Epiphany') > -1)) safari = false;	
+								</main>
+								<footer class="modal-footer">
+									<Form id="noName2" class="d-flex mr-auto">
+										<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
+									</Form>
 
+									<Form id="noName3" class="d-flex ml-auto">
+										<button class="btn btn-secondary" type="submit" value="true"
+											id="cancelar4">Não</button>
+									</Form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		$(document).ready(function(){
-			setTimeout(function(){ 
-				$("#diag1").modal({backdrop: 'static', keyboard: false})
-				$("#diag1").modal('show')
-				}, 1000)
-			})
-				
-		if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {		
-			$('#cancelar1').click(function(){
-				$("#diag1").modal('hide')
-				setTimeout(function(){ 
-						$("#diag2").modal({backdrop: 'static', keyboard: false})
-						$("#diag2").modal('show')
-						}, 1000)
-			})
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag5" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner solicita:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Então digite seu nome:<br><br>
+									<form id="name2" class="input-group-prepend d-flex" action="" method="get"><span
+											class="input-group-text d-flex">Nome</span>
+										<input style="width: 400px;" id="nome2" name="nome" class="form-control d-flex"
+											type="text" placeholder="Digite seu nome aqui" />
+								</main>
+								<footer class="modal-footer d-block">
+									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+										id="enviar3">Enviar</button>
+								</footer>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-			$('#cancelar2').click(function(){
-				$("#diag2").modal('hide')
-			})
-		} 
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag6" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner lamenta:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Que Pena! :( Então te chamarei apenas de Recrutador(a), OK?<br>
 
-	</script>
+								</main>
+								<footer class="modal-footer d-block">
+									<form id="name3">
+										<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+											id="enviar4">
+											<a style="color: white; text-decoration: none;" href="index2.html">OK</a>
+										</button>
+									</form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag7" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content d-flex" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner pergunta:</h5>
+								</header>
+								<main class="modal-body input-group">
+									<p style="height: 18px;">Você digitou:&nbsp;</p><em><strong><span id="nome_digitado"
+												style="height: 18px;"></span></strong></em><span>.</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span>Seu nome está correto?</span><br>
+
+								</main>
+								<footer class="modal-footer">
+									<Form id="name4" class="d-flex mr-auto">
+										<button class="btn btn-success" type="submit" value="true" id="enviar5">
+											<a style="color: white; text-decoration: none;" href="index2.html">Sim</a>
+										</button>
+									</form>
+
+									<Form id="noName4" class="d-flex ml-auto">
+										<button class="btn btn-secondary" type="submit" value="true"
+											id="cancelar5">Não</button>
+									</Form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag8" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner solicita:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Digite seu nome novamente:<br><br>
+									<form id="name5" class="input-group-prepend d-flex" action="" method="get"><span
+											class="input-group-text d-flex">Nome</span>
+										<input style="width: 400px;" id="nome3" name="nome" class="form-control d-flex"
+											type="text" placeholder="Digite seu nome aqui" />
+								</main>
+								<footer class="modal-footer d-block">
+									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+										id="enviar6">Enviar</button>
+								</footer>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="modal fade" id="diag9" tabindex="-1" role="dialog">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+								<header class="modal-header">
+									<h5>Abner informa:</h5>
+								</header>
+								<main class="modal-body input-group">
+									Seu nome foi corrigido com sucesso! ;)<br>
+
+								</main>
+								<footer class="modal-footer d-block">
+									<form id="name6">
+										<button class="btn btn-success d-block ml-auto" type="submit" value="true"
+											id="enviar7">
+											<a style="color: white; text-decoration: none;" href="index2.html">Home</a>
+										</button>
+									</form>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
 </html>
