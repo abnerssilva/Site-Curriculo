@@ -2,16 +2,20 @@
 <html lang="pt-br">
 	<head>
 	    
-	    <title>HOME - Abner Souza - Desenvolvedor</title>
+	    <title>Abner Souza - Desenvolvedor</title>
 	    <!-- Meta tags Obrigatórias-->
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Favicon Icon -->
+		 <link rel="shortcut icon" href="./assets/media/imagens/eu.png" type="image/png">
 
 	    <!-- Bootstrap CSS -->
 	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	    <!--<link rel="stylesheet" href="./assets/css/bootstrap.css">-->
-	    <!-- CSS Customizado-->
+	    
+		<!-- CSS Customizado-->
 	   	<link rel="stylesheet" type="text/css" href="./assets/css/estilo.css">
 		
 		<style type="text/css">
@@ -26,22 +30,27 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-		<script src="assets/js/script.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script text="text/babel" src="assets/js/script.js"></script>
+		<script>
+			if(!nome) { window.open('index.html', '_self')}
+		</script>
 	   
 	</head>
 
 	<body>
 		<div id="conteiner">
-			<div>
-				<figure id="banner">
-					
-				</figure>
+			<div style="margin-left: 5px;">
+				<div id="banner">
+					<img id="eu" class="d-none d-sm-block" src="./assets/media/imagens/euprincipal.jpeg" alt="">
+				</div>
 				
 				<header id="home1">
-					<nav class="navbar navbar-expand-md bg-primary m-0 p-0">
-						<div class="conteiner ml-auto">
+					<nav class="navbar navbar-expand-xl bg-primary m-0 p-0">
+						<div id="cont" class="conteiner">
 							<button class="navbar-toggler navbar-light" data-toggle="collapse" data-target="#nav-princ">
-								<p class="navbar-toggler-icon"></p>
+								<span class="navbar-toggler-icon d-flex float-left"></span>
+								<span style="font-family: monospace; font-size: 1.3em; color: white;" class="d-flex float-right ml-1 mr-2 pt-1 pl-1">MENU</span>
 							</button>
 							<div id="nav-princ" class="collapse navbar-collapse">
 								<ul class="navbar-nav">
