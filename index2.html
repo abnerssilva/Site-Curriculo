@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+	    
+	    <title>Abner Souza - Desenvolvedor</title>
+	    <!-- Meta tags Obrigatórias-->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Favicon Icon -->
+		 <link rel="shortcut icon" href="./assets/media/imagens/eu.png" type="image/png">
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <!--<link rel="stylesheet" href="./assets/css/bootstrap.css">-->
+	    
+		<!-- CSS Customizado-->
+	   	<link rel="stylesheet" type="text/css" href="./assets/css/estilo.css">
+		
+		<style type="text/css">
+			p.brc {
+				color: white;
+				display: inline;
+				float: left;
+			}
+		</style>
+	 	    
+		<!-- JavaScript -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script text="text/babel" src="assets/js/script.js"></script>
+		<script>
+			if(!nome) { window.open('index.html', '_self')}
+		</script>
+	   
+	</head>
+
+	<body>
+		<div id="conteiner">
+			<div style="margin-left: 5px;">
+				<div id="banner">
+					<img id="eu" class="d-none d-sm-block" src="./assets/media/imagens/euprincipal.jpeg" alt="">
+				</div>
+				
+				<header id="home1">
+					<nav class="navbar navbar-expand-xl bg-primary m-0 p-0">
+						<div id="cont" class="conteiner">
+							<button class="navbar-toggler navbar-light" data-toggle="collapse" data-target="#nav-princ">
+								<span class="navbar-toggler-icon d-flex float-left"></span>
+								<span style="font-family: monospace; font-size: 1.3em; color: white;" class="d-flex float-right ml-1 mr-2 pt-1 pl-1">MENU</span>
+							</button>
+							<div id="nav-princ" class="collapse navbar-collapse">
+								<ul class="navbar-nav">
+									<li class="home" class="nav-item">
+										<a id="home" href="#" class="nav-link px-5">HOME</a>
+									</li>
+									<li class="objetivo" class="nav-item">
+										<a id="objetivo" href="#" class="nav-link px-5">OBJETIVO</a>
+									</li>
+									<li class="sobre" class="nav-item">
+										<a id="sobre" href="#" class="nav-link px-5">SOBRE</a>
+									</li>
+									<li class="formacao" class="nav-item">
+										<a id="formacao" href="#" class="nav-link px-5">FORMAÇÃO</a>
+									</li>
+									<li class="experiencia" class="nav-item">
+										<a id="experiencia" href="#" class="nav-link px-5">EXPERIÊNCIAS</a>
+									</li>
+									<li class="quali" class="nav-item">
+										<a id="quali" href="#" class="nav-link px-5">QUALIFICAÇÕES</a>
+									</li>
+									<li class="contato" class="nav-item">
+										<a id="contato" href="#" class="nav-link px-5">CONTATO</a>
+									</li>
+								</ul>
+							</div>
+						</div>	
+					</nav>
+				</header>
+
+				<main id="principal">
+					<section id="conteudo" class="conteiner">
+						<div class="row">
+							<aside class="col-md-4 py-0 my-0 d-none d-md-block">
+								<h2 class="text-center"><em>Abner Souza da Silva</em></h2><br>
+								<img class="img-size" src="./assets/media/imagens/eu.png">
+							</aside>
+						
+							<article class="col-md-8 d-flex">
+								<p class="index" class="text-align-justify">
+									Olá <em><span style="color: #7e9d36; font-size: 1.07em"><script>document.write(nome)</script></span></em>, é um prazer ter você aqui!!!<br><br>
+									Hoje é dia <em><span style="color: #7e9d36"><script>document.write(data.getDate() + "/" + (data.getMonth() + 1) + "/" + data.getFullYear())</script></span></em>, você se lembrará desse dia como o dia que você encontrou o candidato perfeito para a sua vaga! <br><br>
+									Aqui você poderá me conhecer um pouco melhor!<br><br>
+									Navegue pelos menus e divirta-se!!<br>
+								</p>
+							</article>
+						</div>	
+					</section>
+				</main>
+
+				<footer id="rodape" class="centralizar">
+					<h4>Todos os Diretos reservados &reg;</h4>
+				</footer>
+			</div>
+   		</div>
+	</body>
+</html>

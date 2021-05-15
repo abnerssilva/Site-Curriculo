@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ferramenta de Produtividade</title>
+
+  <!-- Favicon Icon -->
+  <link rel="shortcut icon" href="./assets/media/tomate-cheio.png" type="image/png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.css">
+
+  <!-- CSS Customizado -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Libs JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://kit.fontawesome.com/e693c56b3c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h2 class="text-center" style="font-size: 2.5em;"><i>Sistema de Produtividade</i></h2>
+
+  </header>
+
+  <audio id="som" src="./assets/media/alerta-pomodoro.mp3"></audio>
+
+  <!-- Início do Conteúdo -->
+  <main class="container"> 
+
+    <!-- Início da Seção POMODORO -->
+    <section class="row d-block">
+
+      <!-- Início da Área de Animation -->
+      <aside class="col-sm-4 d-block float-right pl-0"> 
+
+        <h2 class="text-center"><strong><em>Large Cycle</em></strong></h2>
+
+        <div id="tomates">
+
+          <ul class="d-flex">
+
+            <img style="margin-left: auto; margin-right: auto;" id="c1" src="./assets/media/tomate-vazio.png"
+              title="Small Cycle 1">
+
+            <img style="margin-left: auto; margin-right: auto;" id="c2" src="./assets/media/tomate-vazio.png"
+              title="Small Cycle 2">
+          </ul>
+
+          <ul class="d-flex mb-0">
+
+            <img style="margin-left: auto; margin-right: auto;" id="c4" src="./assets/media/tomate-vazio.png"
+              title="Small Cycle 4">
+
+            <img style="margin-left: auto; margin-right: auto;" id="c3" src="./assets/media/tomate-vazio.png"
+              title="Small Cycle 3">
+
+          </ul>
+
+        </div>
+
+        <div class="progress mx-5 mt-2" style="bottom: 0px;">
+
+          <div id="barra" class="progress-bar progress-bar-striped progress-bar-animated bg-success"></div>
+
+        </div>
+
+      </aside> <!-- Fim da Área de Animation -->
+
+      <!-- Início da Área do Formulário de Tempos de Ciclo -->
+      <aside class="col-sm-4 float-left"> 
+
+        <h5 style="margin-bottom: 15px;">Insira os tempos do seu ciclo:</h5>
+
+        <form id="tempos" action="" method="GET">
+
+          <div class="form-group">
+
+            <div class="input-group">
+
+              <div class="input-group-prepend"><span class="input-group-text"
+                  style="background-color: gray; color: white;">Foco:</span></div>
+
+              <input id="foco" class="form-control px-1" type="text" placeholder="Tempo em minutos">
+              <div class="input-group-apend"><span class="input-group-text"
+                  style="background-color: gray; color: white;">minutos</span></div>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <div class="input-group">
+
+              <div class="input-group-prepend"><span class="input-group-text"
+                  style="background-color: gray; color: white;">Pausa:</span></div>
+
+              <input id="pausa" class="form-control px-1" type="text" placeholder="Tempo em minutos">
+
+              <div class="input-group-apend"><span class="input-group-text"
+                  style="background-color: gray; color: white;">minutos</span></div>
+
+            </div>
+
+          </div>
+
+          <div class="form-group mb-0">
+
+            <div class="input-group">
+
+              <div class="input-group-prepend"><span class="input-group-text"
+                  style="background-color: gray; color: white;">Descanso:</span></div>
+
+              <input id="descanso" class="form-control px-1" type="text" placeholder="Tempo em minutos">
+
+              <div class="input-group-apend"><span class="input-group-text"
+                  style="background-color: gray; color: white;">minutos</span></div>
+
+              <small style="font-size: 0.5em;"><i>Padrão Original: 25m Foco, 5m Pausa, 15m descanso.</i></small>
+
+            </div>
+
+          </div>
+
+          <hr>
+
+          <div class="input-group d-block" style="margin-left: auto; margin-right: auto;">
+
+            <button id="enviarTempos" style="width: 47%;" type="submit" class="btn btn-dark btn-md">Enviar</button>
+
+            <button id="redefinir" disabled='' style="width: 47%;" type="submit"
+              class="btn btn-secondary btn-md float-right">Redefinir</button>
+
+          </div>
+          
+        </form>
+
+      </aside> <!-- Fim da Área do Formulário de Tempos de Ciclo -->
+
+      <!-- Início d Cronometro -->
+      <aside class="col-sm-4 float-right d-flex justify-content-center pl-5"> 
+
+        <div class="d-block">
+
+          <h1 class="text-center mb-4">Pomodoro</h1><br />
+
+          <p class="relogio text-center mb-4">00:00:00</p><br />
+
+          <div class="d-block mt-1">
+
+            <div class="d-flex justify-content-center">
+
+              <a id="iniciar" class="iniciar pt-2 mt-2 mx-3"><i id="iniciado" class="play fas fa-play-circle fa-3x"></i></a> 
+
+              <a id="pausar" class="pausar pt-2 mt-2 mx-3"><i id="pausado" class="pause fas fa-pause-circle fa-3x"></i></a>
+
+              <a id="zerar" class="zerar pt-2 mt-2 mx-3"><i id="zerado" class="redo fas fa-redo fa-3x"></i></i></a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </aside> <!-- Fim do Cronometro -->
+
+      <div style="clear:both;"></div>
+
+    </section> <!-- Fim da Seção POMODORO -->
+
+    <hr>
+    <hr>
+    <!-- Início da Seção TAREFAS -->
+    <section class="row d-block">
+
+      <aside class="col-sm-12">
+
+        <div class="pl-5">
+
+          <h3 class="text-center"><strong>Tarefas</strong></h3>
+  
+          <form class="form-inline justify-content-center">
+
+            <div class="form-group mb-0">
+
+                <div class="input-group mr-2">
+
+                  <div class="input-group-prepend"><span class="input-group-text">Tarefa:</span></div>
+
+                  <input  class="input-tarefa form-control px-1" type="text" placeholder="Digite aqui">
+
+                </div>
+
+                <div class="input-group d-flex" style="margin-left: auto; margin-right: auto;">
+
+                  <a id="plus" class="iconPlus d-block"><i class="addPlus fas fa-plus-circle fa-lg"></i></a>
+
+                </div>
+
+            </div>
+
+          </form>
+
+          <button id="erase-concluded" style="height: 38px;" type="button" class="btn btn-danger btn-sm d-block float-right">Apagar Concluídas</button>
+    
+          <h2 class="d-block" style="color: #a3a389;"><i>Listas</i></h2>
+    
+          <hr class="mt-2 d-block">
+
+        </div>
+
+      </aside>
+      
+    </section>
+
+    <section class="row d-flex">
+
+      <aside class="col-sm-6 d-block float-left">
+
+        <div><h5 class="text-center">Para fazer</h5></div>
+
+        <ul class="tarefas-fazer list-group-flush">
+
+          <!--<li id="inutil"><a class="check"></a></li>-->
+
+        </ul>
+
+      </aside>
+
+      <aside class="col-sm-6 d-block float-right">
+
+        <div><h5 class="text-center">Concluídas</h5></div>
+
+        <ul class="tarefas-feitas list-group-flush">
+
+          
+
+        </ul>
+
+      </aside>
+      
+    </section>
+
+  </main> <!-- Fim do Conteúdo -->
+
+
+
+  <!-- Área de Pop'ups Modais -->
+  <!-- Início da Pausa-->
+  <div id="pop1" class="row"> 
+
+    <div class="col-sm-12">
+
+      <div class="modal fade" id="diag1" tabindex="-1" role="dialog">
+
+        <div class="modal-dialog modal-sm">
+
+          <div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+
+            <header class="modal-header">
+
+              <h5>Abner informa:</h5><br>
+
+            </header>
+
+            <main class="modal-body">
+
+              <p>Hora da Pausa! ;)<br></p>
+
+            </main>
+
+            <footer class="modal-footer d-flex">
+
+              <button class="btn btn-secondary btn-md d-flex ml-auto" type="button" value="true" id="enviar1">
+                Iniciar Pausa
+              </button>
+
+            </footer>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Volta ao Trabalho -->
+  <div id="pop2" class="row"> 
+
+    <div class="col-sm-12">
+
+      <div class="modal fade" id="diag2" tabindex="-1" role="dialog">
+
+        <div class="modal-dialog modal-sm">
+
+          <div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+
+            <header class="modal-header">
+
+              <h5>Abner informa:</h5><br>
+
+            </header>
+
+            <main class="modal-body">
+
+              <p>Volte ao Trabalho! ;)<br></p>
+
+            </main>
+
+            <footer class="modal-footer d-flex">
+
+              <button class="btn btn-secondary btn-sm d-flex ml-auto" type="button" value="true" id="enviar2">
+                Voltar
+              </button>
+
+            </footer>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Início do Descanso Longo-->
+  <div id="pop3" class="row"> 
+
+    <div class="col-sm-12">
+
+      <div class="modal fade" id="diag3" tabindex="-1" role="dialog">
+
+        <div class="modal-dialog modal-sm">
+
+          <div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+
+            <header class="modal-header">
+
+              <h5>Abner informa:</h5><br>
+
+            </header>
+
+            <main class="modal-body">
+
+              <p>Hora do Descanso Longo! ;)<br></p>
+
+            </main>
+
+            <footer class="modal-footer d-flex">
+
+              <button class="btn btn-secondary btn-md d-flex ml-auto" type="button" value="true" id="enviar3">
+                Iniciar Descanso
+              </button>
+
+            </footer>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Pop'up Fim de Ciclo -->
+  <div id="pop4" class="row"> 
+
+    <div class="col-sm-12">
+
+      <div class="modal fade" id="diag4" tabindex="-1" role="dialog">
+
+        <div class="modal-dialog modal-sm">
+
+          <div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
+
+            <header class="modal-header">
+
+              <h5>Abner informa:</h5><br>
+
+            </header>
+
+            <main class="modal-body">
+
+              <p>Ciclo Pomodoro concluído!<br></p>
+              <p>Se desejar, inicie um novo ciclo!</p>
+
+            </main>
+
+            <footer class="modal-footer d-flex">
+
+              <button class="btn btn-secondary btn-sm d-flex ml-auto" type="button" value="true" id="enviar4">
+                Voltar
+              </button>
+
+            </footer>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+<!-- LÓGICA POMODORO -->
+<script src="./assets/js/main.js"></script>
+
+</html>
