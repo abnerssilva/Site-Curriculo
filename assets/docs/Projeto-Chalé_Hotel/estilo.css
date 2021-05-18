@@ -1,0 +1,222 @@
+																							/* Estrutura Principal */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Helvetica, "Trebuchet MS", sans-serif;
+	background: #fff url('imagens/bg.png');
+	margin: 15px;
+}
+
+/* Estrutura da Área Útil */
+#conteiner {
+	background: #ede9cc url('imagens/bg-container.png') top center repeat-y;
+	margin: 0 auto;
+	min-width: 760px;
+	max-width: 1180px;
+}
+
+																									/* ID's */
+#topo {
+	position: relative;
+	background: #dbcd87;
+	height: 15.4em;
+	min-height: 250px;
+}
+
+#area-banner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('imagens/topo-imagem-principal.png') no-repeat;
+	width: 100%;
+	height: 250px;
+	z-index: 1;
+}
+
+#area-total-menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url('imagens/topo-imagem-lateral.png') no-repeat;
+	width: 450px;
+	height: 250px;
+	z-index: 2;
+}
+
+#area-util-menu {
+	margin-top: 15px;
+	margin-left: 90px;
+	margin-right: 15px;
+}
+
+#menu-locais {
+	border-bottom: 1px solid #b5ab56;
+	border-top: 1px solid #b5ab56;
+	padding: 5px 0;
+	font-size: 0.8em;
+	color: #8b8448;
+}
+
+#navegacao {
+	margin-top: 12px;
+}
+
+#area-principal {
+	float: left;
+	width: 50%;
+	background: url('imagens/bg-area-principal.png') top left repeat-x;
+	padding: 15px 0;
+}
+
+#area-lateral {
+	float: right;
+	width: 50%;
+	background: url('imagens/bg-area-lateral.png') top left repeat-x;
+	padding: 20px 0;
+}
+
+#beneficios li {
+	padding: 8px;
+	border-bottom: 1px solid #f3efcb;
+	height: 6em;
+}
+
+#beneficios li:hover {
+	background: #f6f3d6;
+	cursor: pointer;
+}
+
+#beneficios li a {
+	text-decoration: none;
+}
+
+#beneficios li a img {
+	float: left;
+	margin-right: 8px;
+}
+
+#beneficios li a p {
+	font-size: 0.7em;
+	color: #000;
+}
+
+
+#beneficios li a h3 {
+	font-size: 0.9em;
+	color: #615b2d;
+	padding: 5px 0;
+	background: url('imagens/ornamento.png') no-repeat center right;
+}
+
+																								/* Classes */
+.locais {
+	float: left;
+	line-height: 2.7em;
+}
+
+.logo a {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 150px;
+	height: 66px;
+	background: url('imagens/logo.png') no-repeat;
+	z-index: 3;
+	text-indent: -9000px;
+}
+
+.reserva {
+	text-transform: uppercase;
+	background-color: #a29750;
+	color: #fff5b0;
+	margin-top: 2px;
+	padding: 5px 8px;
+	float: right;
+}
+
+.nav-vertical {
+	float: left;
+	list-style: none;
+}
+
+.depoimento {
+	width: 226px;
+	height: 164px;
+	float: right;
+}
+
+.conteudo {
+	margin: 0 auto;
+	width: 90%;
+}
+																								/* Tag's e Seletores */
+ul.nav-vertical a {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	padding: 5px;
+	color: #6e672c;
+	text-decoration: none;
+	line-height: 30px;
+}
+
+ul.nav-vertical a:hover {
+	background: #fdf6be;
+}
+
+footer {
+	clear: both;
+	padding: 16px;
+	background: #fff url('imagens/bg-rodape.png') repeat-x top;
+	color: #7b7640;
+	text-align: center;
+}
+
+h2 {
+	color: #7b7640;
+	font-size: 0.9em;
+	padding: 5px 0;
+}
+
+p {
+	font-size: 0.9em;
+	margin-bottom: 10px;
+	text-align: justify;
+}
+
+ul {
+	list-style: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
