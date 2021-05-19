@@ -6,7 +6,9 @@ $(document).ready(function () {
         $("#diag1").modal('show')
     }, 300)
 
-    nome = 'inicio'
+    if(!nome){
+        nome = 'inicio'
+    }
 
     console.log(nome)
 
@@ -42,7 +44,7 @@ $(document).ready(function () {
     if ((navigator.userAgent.indexOf('Safari') > -1) && (navigator.userAgent.indexOf('Epiphany') > -1)) safari = false;
             
         if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {            
-            $('#cancelar1').click(function () {
+            $('#cancelar1').mousedown(function () {
                 $("#diag1").modal('hide')
                 setTimeout(function () {
                     $("#diag2").modal({ backdrop: 'static', keyboard: false })
@@ -50,7 +52,7 @@ $(document).ready(function () {
                 }, 300)
             })
 
-            $('#cancelar2').click(function () {
+            $('#cancelar2').mousedown(function () {
                 nome = "inicio"
                 navegadoresNaoSafari()
                 $("#diag2").modal('hide')
@@ -63,7 +65,7 @@ $(document).ready(function () {
 
     function navegadoresNaoSafari() {   
         if (nome === "inicio") {
-            $('#cancelar1').click(function () {
+            $('#cancelar1').mousedown(function () {
                 $("#diag1").modal('hide')
                 setTimeout(function () {
                     $("#diag3").modal({ backdrop: 'static', keyboard: false })
@@ -80,7 +82,7 @@ $(document).ready(function () {
 
                 $('#nome_digitado').html(nome)
 
-                if (nome === 'null' || null) {
+                if (nome === 'undefined' || undefined) {
                 } else {
                     setTimeout(function () {
                         $("#diag7").modal({ backdrop: 'static', keyboard: false })
@@ -125,7 +127,7 @@ $(document).ready(function () {
 
             $('#noName').submit(function (f) {
                 f.preventDefault()
-                nome = $('#nome').val('null')
+                nome = $('#nome').val('undefined')
                 $('#enviar1').trigger('click')
                 $('#name').submit(function (g) {
                     g.preventDefault()
@@ -143,7 +145,7 @@ $(document).ready(function () {
             $('#noName').submit(function (h) {
                 h.preventDefault()
 
-                if (nome === 'null' || null) {
+                if (nome === 'undefined' || undefined) {
                     setTimeout(function () {
                         $("#diag4").modal({ backdrop: 'static', keyboard: false })
                         $("#diag4").modal('show')

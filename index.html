@@ -11,6 +11,9 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="./assets/css/bootstrap.css">
 
+		<!-- CSS Customizado -->
+		<link rel="stylesheet" href="./assets/css/estilo.css">
+
 		<!-- JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -27,12 +30,12 @@
 
 	</head>
 
-	<body id="body_index" class="bg-dark">
+	<body id="body_index" class="bg-dark" style='font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";'>
 		<section class="conteiner">
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag1" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag1" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -55,21 +58,21 @@
 
 			<div class="row" id="pop2">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag2">
+					<div class="modal fade enter-down-bounce" id="diag2">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
 									<h5>Abner recomenda:</h5>
 								</header>
 								<main class="modal-body text-justify">
-									Identifiquei que você está usando o navegador <em><strong><span
-												id="browser"></span></strong></em> da Apple,
-									porém, este site não funciona muito bem nesse navegador.<br><br>
+									Identifiquei que você está usando um dispositivo mobile ou um computador Mac com OSX da Apple.<br><br>
+									Se for um dispositivo mobile, siga sem problemas, porém, se for o navegador 
+									<em><strong><span id="browser"></span></strong></em> para Mac, este site não funciona muito bem nesse navegador.<br><br>
 									Recomendo que você troque de navegador ou, se preferir continuar no SAFARI, realize o
 									procedimento abaixo
 									<strong style="text-transform: uppercase;">antes de fechar</strong> esse
 									pop-up:<br><br><br>
-									Nos menus, clique em SAFARI > PREFERENCIAS > AVANÇADO > Habilite 'Mostra menu
+									Nos menus, clique em SAFARI > PREFERENCIAS > AVANÇADO > e Habilite o checkbox 'Mostrar menu
 									Desenvolvedor na barra de menus'.<br>
 									Depois clique em DESENVOLVEDOR na barra de menus e Habilite 'Desativar restições de
 									Arquivos Locais' para que você
@@ -88,7 +91,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag3" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag3" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -98,7 +101,7 @@
 									Para que sua experiência seja incrível, digite seu nome:<br><br>
 									<form id="name" class="input-group-prepend d-flex" action="" method="get"><span
 											class="input-group-text d-flex">Nome</span>
-										<input style="width: 320px;" id="nome" name="nome" class="form-control d-flex"
+										<input style="width: 100%;" id="nome" name="nome" class="form-control d-flex"
 											type="text" placeholder="Digite seu nome aqui" />
 										<button class="btn btn-success d-flex" type="submit" value="true"
 											id="enviar1">Enviar</button>
@@ -119,7 +122,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag4" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag4" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -131,14 +134,16 @@
 
 								</main>
 								<footer class="modal-footer">
-									<Form id="noName2" class="d-flex mr-auto">
-										<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
-									</Form>
 
 									<Form id="noName3" class="d-flex ml-auto">
 										<button class="btn btn-secondary" type="submit" value="true"
 											id="cancelar4">Não</button>
 									</Form>
+
+									<Form id="noName2" class="d-flex">
+										<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
+									</Form>
+
 								</footer>
 							</div>
 						</div>
@@ -148,7 +153,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag5" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag5" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -174,7 +179,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag6" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag6" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -200,7 +205,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag7" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag7" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content d-flex" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -216,17 +221,18 @@
 									<span>Seu nome está correto?</span><br>
 
 								</main>
-								<footer class="modal-footer">
-									<Form id="name4" class="d-flex mr-auto">
-										<button class="btn btn-success" type="submit" value="true" id="enviar5">
-											<a style="color: white; text-decoration: none;" href="index2.html">Sim</a>
-										</button>
-									</form>
+								<footer class="modal-footer">									
 
 									<Form id="noName4" class="d-flex ml-auto">
 										<button class="btn btn-secondary" type="submit" value="true"
 											id="cancelar5">Não</button>
 									</Form>
+
+									<Form id="name4" class="d-flex">
+										<button class="btn btn-success" type="submit" value="true" id="enviar5">
+											<a style="color: white; text-decoration: none;" href="index2.html">Sim</a>
+										</button>
+									</form>
 								</footer>
 							</div>
 						</div>
@@ -236,7 +242,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag8" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag8" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
@@ -262,7 +268,7 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="modal fade" id="diag9" tabindex="-1" role="dialog">
+					<div class="modal fade enter-down-bounce" id="diag9" tabindex="-1" role="dialog">
 						<div class="modal-dialog modal-md">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">

@@ -21,7 +21,6 @@ body {
 	margin: 5px auto;
 	min-width: 414px;
 	max-width: 1280px;
-	min-width: 406px;
 }
 
 #banner {
@@ -128,6 +127,74 @@ body {
 	height: 400px;
 	width: 860px;
 	float: right;
+}
+
+.anime {
+	opacity: 0;
+	animation-name: slide;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transform: translateX(1000px);
+}
+
+.anime-first {
+	animation: loadIn 0.5s;
+}
+
+.anime-reverse {
+	opacity: 0;
+	animation-name: slide;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transform: translateX(-1000px);
+}
+
+.anime-out {
+	opacity: 1;
+	animation-name: loadOut;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.enter-down-bounce {
+	-webkit-animation: enterDownBounce .7s linear;
+	-moz-animation: enterDownBounce .7s linear;
+	-ms-animation: enterDownBounce .7s linear;
+	-o-animation: enterDownBounce .7s linear;
+	animation: enterDownBounce .7s linear;
+	opacity: 1;
+}
+
+@keyframes slide {
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+
+@keyframes loadIn {
+	0% {
+	  transform: translate(0px) scale(0);
+	}
+}
+
+@keyframes loadOut {
+	to {
+	  transform: translate(0px) scale(0);
+	  opacity: 0;
+	}
+}
+
+@keyframes enterDownBounce {
+	0% {
+		transform:translateY(-220px);  opacity: 0;
+	}50%{
+		transform:translateY(0px); 
+	}70%{transform:translateY(-20px); }
+	
+	100%{
+		transform:translateY(0);  opacity: 1;
+	}
 }
 
 a {
