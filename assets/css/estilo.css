@@ -162,6 +162,7 @@ body {
 	-ms-animation: enterDownBounce .7s linear;
 	-o-animation: enterDownBounce .7s linear;
 	animation: enterDownBounce .7s linear;
+	animation-fill-mode: forwards;
 	opacity: 1;
 }
 
@@ -187,13 +188,16 @@ body {
 
 @keyframes enterDownBounce {
 	0% {
-		transform:translateY(-220px);  opacity: 0;
+		transform:translateY(-220px);  opacity: 0.5;
 	}50%{
 		transform:translateY(0px); 
-	}70%{transform:translateY(-20px); }
-	
+	}70%{
+		transform:translateY(-20px); 
+		opacity: 1;
+	}
 	100%{
-		transform:translateY(0);  opacity: 1;
+		transform:translateY(0);  
+		opacity: 1;
 	}
 }
 
@@ -402,7 +406,7 @@ p.rod {
 		font-size: 1.2em;
  	}
 	p.experiencia {
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 	div#cont {
 		margin-right: auto;
@@ -433,7 +437,7 @@ p.rod {
 		font-size: 1.3em;
  	}
 	p.experiencia {
-		font-size: 1.3em;
+		font-size: 1.2em;
 	}
 	div#cont {
 		margin-right: auto;
@@ -464,7 +468,7 @@ p.rod {
 		font-size: 1.4em;
  	}
 	p.experiencia {
-		font-size: 1.4em;
+		font-size: 1.3em;
 	}
 	div#cont {
 		margin: auto;
