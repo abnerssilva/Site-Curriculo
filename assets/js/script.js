@@ -7,9 +7,17 @@ let data =  new Date();
 // Variáveis
 let largura = 0
 let conteudo
-let link
+let footer
 
 //Funções
+function footerFadeIn() {
+  footer.setAttribute('class', 'anime-in centralizar mt-2 pt-2')
+  setTimeout(function() {
+    footer.removeAttribute('class')
+    footer.setAttribute('class', 'centralizar mt-2 pt-2')
+  }, 1000)
+}
+
 function reqIndex() {
   $.get('./assets/docs/index3.html', data => { 
     $('#principal').html(data)
@@ -47,6 +55,7 @@ function criaSectionObj() {
     const section = document.createElement('section')
     $(section).attr('id', `conteudo`)
     $(section).attr('class', `obj anime-reverse conteiner`)
+    footer.setAttribute('class', 'anime-in centralizar mt-2 pt-2')
     $('#principal').prepend(section)
     reqObjetivo()
   }
@@ -191,38 +200,48 @@ function reqContato() {
 // Requisição HTTP via Ajax
 $(document).ready(function() {
 
+  footer = document.getElementById('rodape')
+  footerFadeIn()
+
     $('#home').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       reqIndex() 
     })
 
     $('#objetivo').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       criaSectionObj() 
     })
 
     $('#sobre').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       criaSectionSobre()  
     })
 
     $('#formacao').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       criaSectionFormacao()  
     })
 
     $('#experiencia').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       criaSectionExperiencia()  
     })
 
     $('#quali').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       criaSectionQuali() 
     })
 
     $('#contato').on('click', function() {
       largura = window.innerWidth
+      footerFadeIn()
       reqContato()   
     })
 })

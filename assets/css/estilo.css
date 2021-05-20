@@ -149,11 +149,9 @@ body {
     transform: translateX(-1000px);
 }
 
-.anime-out {
-	opacity: 1;
+.anime-in {
 	animation-name: loadOut;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+    animation-duration: .5s;
 }
 
 .enter-down-bounce {
@@ -180,9 +178,8 @@ body {
 }
 
 @keyframes loadOut {
-	to {
+	0% {
 	  transform: translate(0px) scale(0);
-	  opacity: 0;
 	}
 }
 
