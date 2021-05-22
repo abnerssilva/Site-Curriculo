@@ -53,7 +53,7 @@ $(document).ready(function () {
             
         if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {            
             $('#cancelar1').mousedown(function (e) {
-                e.preventDefault
+                e.preventDefault()
                 $("#diag1").modal('hide')
                 setTimeout(function () {
                     $("#diag2").modal({ backdrop: 'static', keyboard: false })
