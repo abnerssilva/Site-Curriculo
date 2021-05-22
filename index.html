@@ -45,13 +45,14 @@
 									<h5>Saudação de Abner para o visitante:</h5>
 								</header>
 								<main class="modal-body text-center">
-									Olá!!!<br>Que bom que você se interessou pelo meu Currículo Online!<br>Seja
-									Bem-vindo(a)!!
+									<span id="modal1">Que bom que você se interessou pelo meu Currículo Online! Seja Bem-vindo(a)!!</span>
 								</main>
 								<footer class="modal-footer">
-									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar1">
-										Fechar
-									</button>
+									<form id="first" style="opacity: 0;">
+										<button class="btn btn-secondary" data-dismiss="modal" id="cancelar1">
+											Fechar
+										</button>
+									</form>
 								</footer>
 							</div>
 						</div>
@@ -65,7 +66,7 @@
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content" style="box-shadow: 20px 20px 5px dimgrey;">
 								<header class="modal-header">
-									<h5>Abner recomenda:</h5>
+									<h5>IMPORTANTE:</h5>
 								</header>
 								<main class="modal-body text-justify">
 									Identifiquei que você usa um dispositivo Apple.<br>
@@ -100,8 +101,8 @@
 									<h5>Abner solicita:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Para que sua experiência seja incrível, digite seu nome:<br><br>
-									<form id="name" class="input-group-prepend" style="width: 99%;" action="" method="get"><span
+									<span id="modal3-1">Para que sua experiência seja incrível, digite seu nome:</span><br><br>
+									<form id="name" class="input-group-prepend" style="width: 99%; opacity: 0;" action="" method="get"><span
 											class="input-group-text d-flex">Nome</span>
 										<input style="width: 100%;" id="nome" name="nome" class="form-control d-block"
 											type="text" placeholder="Digite seu nome aqui" />
@@ -110,8 +111,8 @@
 									</form>
 								</main>
 								<footer class="modal-footer d-block">
-									<form id="noName">
-										Se preferir, clique em FECHAR para seguir sem identificação.<br><br>
+									<span id="modal3-2">Se preferir, clique em FECHAR para seguir sem identificação.</span><br><br>
+									<form id="noName" style="opacity: 0;">
 										<button class="btn btn-secondary d-block ml-auto" type="submit" value="true"
 											id="cancelar3">Fechar</button>
 									</form>
@@ -131,20 +132,22 @@
 									<h5>Abner pergunta:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Você optou por não digitar seu nome.<br><br>Tem certeza que deseja continuar sem se
-									identificar?<br><br>
+									<span style="width: 100%;" id="modal4-1">Você optou por não digitar seu nome.</span><br><br>
+									
+									<p id="modal4-2">Tem certeza que deseja continuar sem se identificar?</p><br>
 
 								</main>
 								<footer class="modal-footer">
-
-									<Form id="noName3" class="d-flex ml-auto">
-										<button class="btn btn-secondary" type="submit" value="true"
-											id="cancelar4">Não</button>
-									</Form>
-
-									<Form id="noName2" class="d-flex">
-										<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
-									</Form>
+									<div id="noNames" style="opacity: 0;">
+										<Form id="noName3" class="d-flex ml-auto">
+											<button class="btn btn-secondary" type="submit" value="true"
+												id="cancelar4">Não</button>
+										</Form>
+	
+										<Form id="noName2" class="d-flex ml-2">
+											<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
+										</Form>
+									</div>
 
 								</footer>
 							</div>
@@ -162,17 +165,18 @@
 									<h5>Abner solicita:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Então digite seu nome:<br><br>
-									<form id="name2" class="input-group-prepend d-flex" action="" method="get"><span
-											class="input-group-text d-flex">Nome</span>
+									<span id="modal5">Então digite seu nome:</span><br><br>
+								<form id="name2" class="input-group-prepend" style="opacity: 0;">
+										<span class="input-group-text d-flex">Nome</span>
 										<input style="width: 400px;" id="nome2" name="nome" class="form-control d-flex"
 											type="text" placeholder="Digite seu nome aqui" />
+									
 								</main>
 								<footer class="modal-footer d-block">
 									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
 										id="enviar3">Enviar</button>
-								</footer>
 								</form>
+								</footer>
 							</div>
 						</div>
 					</div>
@@ -188,8 +192,7 @@
 									<h5>Abner lamenta:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Que Pena! :( Então te chamarei apenas de Recrutador(a), OK?<br>
-
+									<span id="modal6">Que Pena! :( Então te chamarei apenas de Recrutador(a), OK?</span>
 								</main>
 								<footer class="modal-footer d-block">
 									<form id="name3">
@@ -214,27 +217,29 @@
 									<h5>Abner pergunta:</h5>
 								</header>
 								<main class="modal-body input-group">
-									<p style="height: 18px;">Você digitou:&nbsp;</p><em><strong><span id="nome_digitado"
-												style="height: 18px;"></span></strong></em><span>.</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<span>Seu nome está correto?</span><br>
+									<p style="height: 18px;"><span id="modal7-1">Você digitou:</span>&nbsp;</p>
+									<em><strong><span id="nome_digitado" class="d-block" style="height: 18px; width: 80%;"></span></strong></em><span>.</span><br><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<p id="modal7-2" class="d-block">Seu nome está correto?</p><br>
 
 								</main>
 								<footer class="modal-footer">									
-
-									<Form id="noName4" class="d-flex ml-auto">
-										<button class="btn btn-secondary" type="submit" value="true"
-											id="cancelar5">Não</button>
-									</Form>
-
-									<Form id="name4" class="d-flex">
-										<button class="btn btn-success" type="submit" value="true" id="enviar5">
-											<a style="color: white; text-decoration: none;" href="index2.html">Sim</a>
-										</button>
-									</form>
+									<div id="names" class="anime-form input-group-prepend" style="opacity: 0;">
+										<Form id="noName4" class="d-flex ml-auto">
+											<button class="btn btn-secondary" type="submit" value="true"
+												id="cancelar5">Não</button>
+										</Form>
+	
+										<Form id="name4" class="d-flex ml-2">
+											<button class="btn btn-success" type="submit" value="true" id="enviar5">
+												<a style="color: white; text-decoration: none;" href="index2.html">Sim</a>
+											</button>
+										</form>
+									</div>
 								</footer>
 							</div>
 						</div>
@@ -251,7 +256,7 @@
 									<h5>Abner solicita:</h5>
 								</header>
 								<main class="modal-body input-group">
-									Digite seu nome novamente:<br><br>
+									<span id="modal8">Digite seu nome novamente:</span><br><br>
 									<form id="name5" class="input-group-prepend d-flex" action="" method="get"><span
 											class="input-group-text d-flex">Nome</span>
 										<input style="width: 400px;" id="nome3" name="nome" class="form-control d-flex"
@@ -276,8 +281,8 @@
 								<header class="modal-header">
 									<h5>Abner informa:</h5>
 								</header>
-								<main class="modal-body input-group">
-									Seu nome foi corrigido com sucesso! ;)<br>
+								<main class="modal-body text-center">
+									<span id="modal9">Seu nome foi corrigido com sucesso! ;)</span>
 
 								</main>
 								<footer class="modal-footer d-block">

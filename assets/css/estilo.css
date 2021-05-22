@@ -154,6 +154,11 @@ body {
     animation-duration: .5s;
 }
 
+.anime-form{
+	animation: form 1s;
+	animation-fill-mode: forwards;
+}
+
 .enter-down-bounce {
 	-webkit-animation: enterDownBounce .7s linear;
 	-moz-animation: enterDownBounce .7s linear;
@@ -162,6 +167,12 @@ body {
 	animation: enterDownBounce .7s linear;
 	animation-fill-mode: forwards;
 	opacity: 1;
+}
+
+@keyframes form {
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slide {
@@ -196,6 +207,30 @@ body {
 		transform:translateY(0);  
 		opacity: 1;
 	}
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+span#modal1::after, span#modal5::after, 
+span#modal3-1::after, span#modal3-2::after, 
+span#modal4-1::after, p#modal4-2::after, 
+span#modal6::after, span#modal9::after, 
+span#modal7-1::after, span#nome_digitado::after
+p#modal7-2::after {
+	content: '|';
+	margin-left: 1px;
+	opacity: 1;
+	animation: blink 0.5s infinite;
 }
 
 a {

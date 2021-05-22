@@ -1,9 +1,17 @@
 $(document).ready(function () {
     let nome = sessionStorage.getItem('nome')
-
+    let modal = document.getElementById('modal1')
+    let efeitosForm = document.getElementById('first')
+    const escrita = 60
+    const escritaFrase2 = modal.innerText.length * (escrita - 12)
+   
     setTimeout(function () {
         $("#diag1").modal({ backdrop: 'static', keyboard: false })
         $("#diag1").modal('show')
+        setTimeout(() => {
+            entraClasse()
+        }, escritaFrase2)
+        
     }, 300)
 
     if(!nome){
@@ -57,17 +65,62 @@ $(document).ready(function () {
                 navegadoresNaoSafari()
                 $("#diag2").modal('hide')
                 setTimeout(function () {
+                    $('#modal3-2').attr('style', 'opacity: 0;')
+                    modal = document.getElementById('modal3-1')
+                    maqEscrever(modal)
+                    setTimeout(function(){
+                        efeitosForm = document.getElementById('name')
+                        entraClasse()
+                        modal = document.getElementById('modal3-2')
+                        $('#modal3-1').removeAttr('id')
+                        maqEscrever(modal)
+                        $('#modal3-2').attr('style', 'opacity: 1;')
+                        setTimeout(function(){
+                            efeitosForm = document.getElementById('noName')
+                            entraClasse()
+                        }, escritaFrase2)
+                    }, escritaFrase2)
                     $("#diag3").modal({ backdrop: 'static', keyboard: false })
                     $("#diag3").modal('show')
                 }, 300)
             })
         }   
 
+    function maqEscrever(el) {
+        const arrayLetrasGeral = el.innerHTML.split('')
+        el.innerHTML = ''
+        arrayLetrasGeral.forEach (function(letra, i) {
+            setTimeout(function() {
+                el.innerHTML += letra
+            }, escrita * i)
+        })
+    }
+    maqEscrever(modal)
+
+    function entraClasse() {
+        efeitosForm.setAttribute('class', 'anime-form input-group-prepend')
+    }
+    
     function navegadoresNaoSafari() {   
         if (nome === "inicio") {
             $('#cancelar1').mousedown(function () {
                 $("#diag1").modal('hide')
                 setTimeout(function () {
+                    $('#modal3-2').attr('style', 'opacity: 0;')
+                    modal = document.getElementById('modal3-1')
+                    maqEscrever(modal)
+                    setTimeout(function(){
+                        efeitosForm = document.getElementById('name')
+                        entraClasse()
+                        modal = document.getElementById('modal3-2')
+                        $('#modal3-1').removeAttr('id')
+                        maqEscrever(modal)
+                        $('#modal3-2').attr('style', 'opacity: 1;')
+                        setTimeout(function(){
+                            efeitosForm = document.getElementById('noName')
+                            entraClasse()
+                        }, escritaFrase2)
+                    }, escritaFrase2)
                     $("#diag3").modal({ backdrop: 'static', keyboard: false })
                     $("#diag3").modal('show')
                 }, 300)
@@ -85,6 +138,8 @@ $(document).ready(function () {
                 if (nome === 'undefined' || undefined) {
                 } else {
                     setTimeout(function () {
+                        modal = document.getElementById('modal7-2')
+                        maqEscrever(modal)
                         $("#diag7").modal({ backdrop: 'static', keyboard: false })
                         $("#diag7").modal('show')
                     }, 300)
@@ -100,6 +155,8 @@ $(document).ready(function () {
                         setTimeout(function () { $('#cancelar5').trigger('click') }, 200)
 
                         setTimeout(function () {
+                            modal = document.getElementById('modal8')
+                            maqEscrever(modal)
                             $("#diag8").modal({ backdrop: 'static', keyboard: false })
                             $("#diag8").modal('show')
                         }, 300)
@@ -112,6 +169,8 @@ $(document).ready(function () {
                             setTimeout(function () { $('#enviar6').trigger('click') }, 200)
 
                             setTimeout(function () {
+                                modal = document.getElementById('modal9')
+                                maqEscrever(modal)
                                 $("#diag9").modal({ backdrop: 'static', keyboard: false })
                                 $("#diag9").modal('show')
                             }, 300)
@@ -147,6 +206,19 @@ $(document).ready(function () {
 
                 if (nome === 'undefined' || undefined) {
                     setTimeout(function () {
+                        $('#modal4-2').attr('style', 'opacity: 0;')
+                        modal = document.getElementById('modal4-1')
+                        maqEscrever(modal)
+                        setTimeout(function(){
+                            modal = document.getElementById('modal4-2')
+                            $('#modal4-1').removeAttr('id')
+                            $('#modal4-2').attr('style', 'opacity: 1;')
+                            maqEscrever(modal)
+                            setTimeout(function(){
+                                efeitosForm = document.getElementById('noNames')
+                                entraClasse()
+                            }, escritaFrase2)
+                        }, escritaFrase2)
                         $("#diag4").modal({ backdrop: 'static', keyboard: false })
                         $("#diag4").modal('show')
                     }, 10)
@@ -159,6 +231,12 @@ $(document).ready(function () {
                         setTimeout(function () { $('#enviar2').trigger('click') }, 200)
 
                         setTimeout(function () {
+                            modal = document.getElementById('modal6')
+                            maqEscrever(modal)
+                            setTimeout(function(){
+                                efeitosForm = document.getElementById('name3')
+                                entraClasse()
+                            }, escritaFrase2)
                             $("#diag6").modal({ backdrop: 'static', keyboard: false })
                             $("#diag6").modal('show')
                         }, 300)
@@ -175,6 +253,10 @@ $(document).ready(function () {
                         setTimeout(function () { $('#cancelar4').trigger('click') }, 200)
 
                         setTimeout(function () {
+                            modal = document.getElementById('modal5')
+                            maqEscrever(modal)
+                            efeitosForm = document.getElementById('name2')
+                            entraClasse()
                             $("#diag5").modal({ backdrop: 'static', keyboard: false })
                             $("#diag5").modal('show')
                         }, 300)
@@ -189,6 +271,19 @@ $(document).ready(function () {
                             $('#nome_digitado').html(nome)
 
                             setTimeout(function () {
+                                $('#modal7-2').attr('style', 'opacity: 0;')
+                                modal = document.getElementById('modal7-1')
+                                maqEscrever(modal)
+                                setTimeout(function(){
+                                    modal = document.getElementById('modal7-2')
+                                    $('#modal7-1').removeAttr('id')
+                                    $('#modal7-2').attr('style', 'opacity: 1;')
+                                    maqEscrever(modal)
+                                    setTimeout(function(){
+                                        efeitosForm = document.getElementById('names')
+                                        entraClasse()
+                                    }, escritaFrase2)
+                                }, escritaFrase2)
                                 $("#diag7").modal({ backdrop: 'static', keyboard: false })
                                 $("#diag7").modal('show')
                             }, 300)
@@ -204,6 +299,8 @@ $(document).ready(function () {
                                 setTimeout(function () { $('#cancelar5').trigger('click') }, 200)
 
                                 setTimeout(function () {
+                                    modal = document.getElementById('modal8')
+                                    maqEscrever(modal)
                                     $("#diag8").modal({ backdrop: 'static', keyboard: false })
                                     $("#diag8").modal('show')
                                 }, 300)
@@ -216,6 +313,8 @@ $(document).ready(function () {
                                     setTimeout(function () { $('#enviar6').trigger('click') }, 200)
 
                                     setTimeout(function () {
+                                        modal = document.getElementById('modal9')
+                                        maqEscrever(modal)
                                         $("#diag9").modal({ backdrop: 'static', keyboard: false })
                                         $("#diag9").modal('show')
                                     }, 300)
