@@ -1,342 +1,383 @@
-$(document).ready(function () {
-    let nome = sessionStorage.getItem('nome')
-    let modal = document.getElementById('modal1')
-    let efeitosForm = document.getElementById('first')
-    const escrita = 60
-    const escritaFrase2 = modal.innerText.length * (escrita - 12)
-   
-    setTimeout(function () {
-        $("#diag1").modal({ backdrop: 'static', keyboard: false })
-        $("#diag1").modal('show')
-        setTimeout(() => {
-            entraClasse()
-        }, escritaFrase2)
+///////////////////////////////////////////////////////////////////////////////// MAIN JavaScript (SITE CURRÍCULO) ///////////////////////////////////////////////////////////////////////////
+
+// IIFS (IMMEDIATELY INVOKED FUNCTION EXPRESSION)
+(function() {
+
+//////////////////////////////////////////////////////////////////////////////////////// INÍCIO DA LÓGICA ////////////////////////////////////////////////////////////////////////////////////
+    $(document).ready(function () {
+
+        // Constantes e Variáveis
+        let nome = sessionStorage.getItem('nome')
+        let modal = document.getElementById('modal1')
+        let efeitosForm = document.getElementById('first')
+        const escrita = 60
+        const escritaFrase2 = modal.innerText.length * (escrita - 15)
         
-    }, 300)
 
-    if(!nome){
-        nome = 'inicio'
-    }
+        // Forçar nome 'inicio' caso não exista nenhum nome gravado no Storage da sessão
+        if(!nome){
+            nome = 'inicio'
+            console.log(nome)
+        }
 
-    console.log(nome)
+        // Identiificação de Navegadores
+        let navegadores = "";
 
-    let navegadores = "";
-
-    if (navegadores = navigator.userAgent.toLowerCase().indexOf('op') > -1) {
-        $('#pop2').remove();
-        navegadoresNaoSafari()
-       
-    } else if (navegadores = navigator.userAgent.indexOf('MSIE') > -1) {
-        $('#pop2').remove();
-        navegadoresNaoSafari()
-       
-    } else if (navegadores = navigator.userAgent.indexOf('Firefox') > -1) {
-        $('#pop2').remove();
-        navegadoresNaoSafari()
+        if (navegadores = navigator.userAgent.toLowerCase().indexOf('op') > -1) {
+            $('#pop2').remove();
+            navegadoresNaoSafari()
         
-    } else if (navegadores = navigator.userAgent.indexOf('Epiphany') > -1) {
-        $('#pop2').remove();
-        navegadoresNaoSafari()
-      
-    } else if (navegadores = navigator.userAgent.indexOf('Chrome') > -1) {
-        $('#pop2').remove();
-        navegadoresNaoSafari()
-       
-    } else if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {
-        nome = 'fim'
-        $('#browser').html('SAFARI');
-    }
-
-    if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.indexOf('Safari') > -1)) safari = false;
-    if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.toLowerCase().indexOf('op') > -1)) chrome = false;
-    if ((navigator.userAgent.indexOf('Safari') > -1) && (navigator.userAgent.indexOf('Epiphany') > -1)) safari = false;
+        } else if (navegadores = navigator.userAgent.indexOf('MSIE') > -1) {
+            $('#pop2').remove();
+            navegadoresNaoSafari()
+        
+        } else if (navegadores = navigator.userAgent.indexOf('Firefox') > -1) {
+            $('#pop2').remove();
+            navegadoresNaoSafari()
             
-        if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {            
-            $('#cancelar1').mousedown(function (e) {
-                e.preventDefault
-                $("#diag1").modal('hide')
-                setTimeout(function () {
-                    $("#diag2").modal({ backdrop: 'static', keyboard: false })
-                    $("#diag2").modal('show')
-                }, 300)
-            })
+        } else if (navegadores = navigator.userAgent.indexOf('Epiphany') > -1) {
+            $('#pop2').remove();
+            navegadoresNaoSafari()
+        
+        } else if (navegadores = navigator.userAgent.indexOf('Chrome') > -1) {
+            $('#pop2').remove();
+            navegadoresNaoSafari()
+        
+        } else if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {
+            navegadorSafari()
+            $('#browser').html('SAFARI');
+        }
 
-            $('#cancelar2').mousedown(function () {
-                nome = "inicio"
-                navegadoresNaoSafari()
-                $("#diag2").modal('hide')
-                setTimeout(function () {
-                    $('#modal3-2').attr('style', 'opacity: 0;')
-                    modal = document.getElementById('modal3-1')
-                    maqEscrever(modal)
-                    setTimeout(function(){
-                        efeitosForm = document.getElementById('name')
-                        entraClasse()
-                        modal = document.getElementById('modal3-2')
-                        $('#modal3-1').removeAttr('id')
-                        maqEscrever(modal)
-                        $('#modal3-2').attr('style', 'opacity: 1;')
-                        setTimeout(function(){
-                            efeitosForm = document.getElementById('noName')
-                            entraClasse()
-                        }, escritaFrase2)
-                    }, escritaFrase2)
-                    $("#diag3").modal({ backdrop: 'static', keyboard: false })
-                    $("#diag3").modal('show')
-                }, 300)
-            })
-        }   
+        if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.indexOf('Safari') > -1)) safari = false;
+        if ((navigator.userAgent.indexOf('Chrome') > -1) && (navigator.userAgent.toLowerCase().indexOf('op') > -1)) chrome = false;
+        if ((navigator.userAgent.indexOf('Safari') > -1) && (navigator.userAgent.indexOf('Epiphany') > -1)) safari = false;
+        
 
-    function maqEscrever(el) {
-        const arrayLetrasGeral = el.innerHTML.split('')
-        el.innerHTML = ''
-        arrayLetrasGeral.forEach (function(letra, i) {
-            setTimeout(function() {
-                el.innerHTML += letra
-            }, escrita * i)
-        })
-    }
-    maqEscrever(modal)
+        // FUNÇÕES
+        // Função para setar classe de animação em botões e formulários
+        function entraClasse() {
+            efeitosForm.setAttribute('class', 'anime-form input-group-prepend')
+        }
 
-    function entraClasse() {
-        efeitosForm.setAttribute('class', 'anime-form input-group-prepend')
-    }
-    
-    function navegadoresNaoSafari() {   
-        if (nome === "inicio") {
-            $('#cancelar1').mousedown(function () {
-                $("#diag1").modal('hide')
-                setTimeout(function () {
-                    $('#modal3-2').attr('style', 'opacity: 0;')
-                    modal = document.getElementById('modal3-1')
-                    maqEscrever(modal)
-                    setTimeout(function(){
-                        efeitosForm = document.getElementById('name')
-                        entraClasse()
-                        modal = document.getElementById('modal3-2')
-                        $('#modal3-1').removeAttr('id')
-                        maqEscrever(modal)
-                        $('#modal3-2').attr('style', 'opacity: 1;')
-                        setTimeout(function(){
-                            efeitosForm = document.getElementById('noName')
-                            entraClasse()
-                        }, escritaFrase2)
-                    }, escritaFrase2)
-                    $("#diag3").modal({ backdrop: 'static', keyboard: false })
-                    $("#diag3").modal('show')
-                }, 300)
-            })
-            $('#name').submit(function (e) {
+        // Função que determina qual texto será escrito
+        function valorModal(valor) { // Ex.: ('modal5')
+            modal = document.getElementById(valor)
+            maqEscrever(modal)
+        }
+
+        // Função que determina qual caixa de diálogo vai entrar
+        function entraModal(hashtagDialog) { // Ex.: ('#diag1')
+            $(hashtagDialog).modal({ backdrop: 'static', keyboard: false })
+            $(hashtagDialog).modal('show')
+        }
+
+        // Função de start no efeito dos formulários
+        function efeitoFormulario(idForm) { // Ex.: 'noName'
+            setTimeout(function(){
+                efeitosForm = document.getElementById(idForm)
+                entraClasse()
+            }, escritaFrase2)
+        }
+
+        // Função que concatena as três anteriores para limpar o código
+        function concatFunctions(idValor, hashtagDialog, idForm) { // Ex.: 'modal5', '#diag5', 'name2'
+            setTimeout(function () {   
+                valorModal(idValor)                         
+                entraModal(hashtagDialog)                          
+                efeitoFormulario(idForm)
+            }, 300)
+        }
+
+        // Função de saída das caixas de diálogo a partir dos cliques nos botões
+        function saiModal(hashtagIdBotao) { //Ex.: ('#cancelar5')
+            $(hashtagIdBotao).attr('data-dismiss', 'modal')
+            setTimeout(function () { $(hashtagIdBotao).trigger('click') }, 200)
+        }
+
+        // Função de envio de dados do formúlario
+        function clickFormSimples(hashtagIdForm, hashtagIdBotao) { // Ex.: '#name4' e '#enviar5'
+            $(hashtagIdForm).submit(function (e) {
                 e.preventDefault()
-                nome = $('#nome').val()
-                console.log(nome)
-                sessionStorage.setItem('nome', nome)
-                $('#enviar1').attr('data-dismiss', 'modal')
-                setTimeout(function () { $('#enviar1').trigger('click') }, 200)
-
-                $('#nome_digitado').html(nome)
-
-                if (nome === 'undefined' || undefined) {
-                } else {
-                    setTimeout(function () {
-                        modal = document.getElementById('modal7-2')
-                        maqEscrever(modal)
-                        $("#diag7").modal({ backdrop: 'static', keyboard: false })
-                        $("#diag7").modal('show')
-                    }, 300)
-                    $('#name4').submit(function (n) {
-                        n.preventDefault()
-                        $('#enviar5').attr('data-dismiss', 'modal')
-                        setTimeout(function () { $('#enviar5').trigger('click') }, 200)
-                    })
-
-                    $('#noName4').submit(function (o) {
-                        o.preventDefault()
-                        $('#cancelar5').attr('data-dismiss', 'modal')
-                        setTimeout(function () { $('#cancelar5').trigger('click') }, 200)
-
-                        setTimeout(function () {
-                            modal = document.getElementById('modal8')
-                            maqEscrever(modal)
-                            $("#diag8").modal({ backdrop: 'static', keyboard: false })
-                            $("#diag8").modal('show')
-                        }, 300)
-                        $('#name5').submit(function (m) {
-                            m.preventDefault()
-                            nome = $('#nome3').val()
-                            console.log(nome)
-                            sessionStorage.setItem('nome', nome)
-                            $('#enviar6').attr('data-dismiss', 'modal')
-                            setTimeout(function () { $('#enviar6').trigger('click') }, 200)
-
-                            setTimeout(function () {
-                                modal = document.getElementById('modal9')
-                                maqEscrever(modal)
-                                $("#diag9").modal({ backdrop: 'static', keyboard: false })
-                                $("#diag9").modal('show')
-                            }, 300)
-                            $('#name6').submit(function (k) {
-                                k.preventDefault()
-                                $('#enviar7').attr('data-dismiss', 'modal')
-                                setTimeout(function () { $('#enviar7').trigger('click') }, 200)
-                            })
-                        })
-                    })
-                }
+                saiModal(hashtagIdBotao)
             })
+        }
 
-            $('#noName').submit(function (f) {
-                f.preventDefault()
-                nome = $('#nome').val('undefined')
-                $('#enviar1').trigger('click')
-                $('#name').submit(function (g) {
-                    g.preventDefault()
-                    console.log(nome)
-                    sessionStorage.setItem('nome', nome)
-                    $('#enviar1').attr('data-dismiss', 'modal')
+        // Entrada da Primeira Dialog
+        setTimeout(function () {
+            entraModal('#diag1')
+            setTimeout(() => {
+                entraClasse()
+            }, escritaFrase2)    
+        }, 500)
+
+        // Condição inicial exclusiva para navegador Safari
+        function navegadorSafari() {
+            nome = 'fim'
+            if (navegadores = navigator.userAgent.indexOf('Safari') > -1) {
+                // Clique botão Fechar Dialog 1            
+                $('#cancelar1').mousedown(function () {
+                    $("#diag1").modal('hide')
                     setTimeout(function () {
-                        $('#cancelar3').trigger('click')
-                        $('#enviar1').trigger('click')
+                        // Entra Dialog 2 "Dispositivos Apple..."
+                        entraModal('#diag2')
                     }, 300)
                 })
+                // Clique botão Fechar Dialog 2
+                $('#cancelar2').mousedown(function () {
+                    nome = "inicio"
+                    acaoFechar('#diag2')
+                })
+            }
+        }   
+        
+        // Condições para demais navegadores
+        function navegadoresNaoSafari() {
+            $('#cancelar1').mousedown(function () {
+                acaoFechar('#diag1')
             })
+        }
 
+        // Função a ser executada quando o botão fechar dos Dialogs 1 ou 2 for clicado para abrir Dialog 3
+        function acaoFechar(hashtagDialog) { // ATENÇÃO: Exclusiva para argumentos '#diag1' e '#diag2'
+            $(hashtagDialog).modal('hide')
+            setTimeout(function () {
+                $('#modal3-2').attr('style', 'opacity: 0;')
+                valorModal('modal3-1')
+                setTimeout(function(){
+                    efeitosForm = document.getElementById('name')
+                    entraClasse()
+                    valorModal('modal3-2')
+                    $('#modal3-1').removeAttr('id')
+                    $('#modal3-2').attr('style', 'opacity: 1;')
+                    efeitoFormulario('noName')
+                }, escritaFrase2)
+                entraModal('#diag3')
+                logicaDeIdentificacao()
+            }, 300)
+        }
 
-            $('#noName').submit(function (h) {
-                h.preventDefault()
+        // Função para confirmação da opção de não se identificar
+        function opcaoSemIdentificacao() {
+            setTimeout(function () {
+                $('#modal4-2').attr('style', 'opacity: 0;')
+                valorModal('modal4-1')
+                entraModal('#diag4')
+                setTimeout(function(){
+                    valorModal('modal4-2')
+                    $('#modal4-1').removeAttr('id')
+                    $('#modal4-2').attr('style', 'opacity: 1;')
+                    efeitoFormulario('noNames')
+                }, escritaFrase2)
+            }, 10)
+        }
 
-                if (nome === 'undefined' || undefined) {
-                    setTimeout(function () {
-                        $('#modal4-2').attr('style', 'opacity: 0;')
-                        modal = document.getElementById('modal4-1')
-                        maqEscrever(modal)
-                        setTimeout(function(){
-                            modal = document.getElementById('modal4-2')
-                            $('#modal4-1').removeAttr('id')
-                            $('#modal4-2').attr('style', 'opacity: 1;')
-                            maqEscrever(modal)
-                            setTimeout(function(){
-                                efeitosForm = document.getElementById('noNames')
-                                entraClasse()
-                            }, escritaFrase2)
-                        }, escritaFrase2)
-                        $("#diag4").modal({ backdrop: 'static', keyboard: false })
-                        $("#diag4").modal('show')
-                    }, 10)
-                    $('#noName2').submit(function (i) {
-                        i.preventDefault()
-                        nome = 'Recrutador(a)'
-                        console.log(nome)
-                        sessionStorage.setItem('nome', nome)
-                        $('#enviar2').attr('data-dismiss', 'modal')
-                        setTimeout(function () { $('#enviar2').trigger('click') }, 200)
+        //Executar se o btn SIM da Dialog 4 for clicado
+        function semIdentificacaoSim() {
+            nome = 'Recrutador(a)'
+            console.log(nome)
+            sessionStorage.setItem('nome', nome)
+            // Sai Dialod 4 "Você optou......"
+            saiModal('#enviar2')
+            // Entra Dialog 6 "Que pena....."
+            concatFunctions('modal6', '#diag6', 'name3')
+             // Clique btn OK Dialog 6 "Que pena..."
+            clickFormSimples('#name3', '#enviar4')  
+        }
 
-                        setTimeout(function () {
-                            modal = document.getElementById('modal6')
-                            maqEscrever(modal)
-                            setTimeout(function(){
-                                efeitosForm = document.getElementById('name3')
-                                entraClasse()
-                            }, escritaFrase2)
-                            $("#diag6").modal({ backdrop: 'static', keyboard: false })
-                            $("#diag6").modal('show')
-                        }, 300)
-                        $('#name3').submit(function (k) {
-                            k.preventDefault()
-                            $('#enviar4').attr('data-dismiss', 'modal')
-                            setTimeout(function () { $('#enviar4').trigger('click') }, 200)
-                        })
-                    })
+        //Executar se o btn NÃO da Dialog 4 for clicado
+        function semIdentificacaoNao() {
+            // Sai Dialod 4 "Você optou......"
+            saiModal('#cancelar4')
+            // Entra dialog 5 "Então Digite seu nome"
+            valida = new ValidaFormulario()
+            concatFunctions('modal5', '#diag5', 'name2')
+            $('#name2').submit(function (e) {
+                e.preventDefault()
+                valida = new ValidaFormulario()
+                nome = $('#nome2').val()
+                console.log(nome)
+                sessionStorage.setItem('nome', nome)
+                // Sai Dialog 5 "Então Digite seu nome"
+                saiModal('#enviar3')
+                $('#nome_digitado').html(nome)
+                // Entra Dialog 7 "Vc digitou...."
+                modal7()
+            })
+        }
 
-                    $('#noName3').submit(function (l) {
-                        l.preventDefault()
-                        $('#cancelar4').attr('data-dismiss', 'modal')
-                        setTimeout(function () { $('#cancelar4').trigger('click') }, 200)
+        // Validar formulario de digitação de nomes
+        class ValidaFormulario {
+            constructor(){
+                this.formulario = document.querySelector('#name')
+                this.eventos()
+            }
 
-                        setTimeout(function () {
-                            modal = document.getElementById('modal5')
-                            maqEscrever(modal)
-                            efeitosForm = document.getElementById('name2')
-                            entraClasse()
-                            $("#diag5").modal({ backdrop: 'static', keyboard: false })
-                            $("#diag5").modal('show')
-                        }, 300)
-                        $('#name2').submit(function (m) {
-                            m.preventDefault()
-                            nome = $('#nome2').val()
-                            console.log(nome)
-                            sessionStorage.setItem('nome', nome)
-                            $('#enviar3').attr('data-dismiss', 'modal')
-                            setTimeout(function () { $('#enviar3').trigger('click') }, 200)
+            eventos() {
+                this.formulario.addEventListener('submit', e => {
+                    this.handleSubmit(e)
+                })
+            }
 
-                            $('#nome_digitado').html(nome)
+            handleSubmit(e) {
+                e.preventDefault()
+                const checkFields = this.isValid()
 
-                            setTimeout(function () {
-                                $('#modal7-2').attr('style', 'opacity: 0;')
-                                modal = document.getElementById('modal7-1')
-                                maqEscrever(modal)
-                                setTimeout(function(){
-                                    modal = document.getElementById('modal7-2')
-                                    $('#modal7-1').removeAttr('id')
-                                    $('#modal7-2').attr('style', 'opacity: 1;')
-                                    maqEscrever(modal)
-                                    setTimeout(function(){
-                                        efeitosForm = document.getElementById('names')
-                                        entraClasse()
-                                    }, escritaFrase2)
-                                }, escritaFrase2)
-                                $("#diag7").modal({ backdrop: 'static', keyboard: false })
-                                $("#diag7").modal('show')
-                            }, 300)
-                            $('#name4').submit(function (n) {
-                                n.preventDefault()
-                                $('#enviar5').attr('data-dismiss', 'modal')
-                                setTimeout(function () { $('#enviar5').trigger('click') }, 200)
-                            })
+                if(!checkFields) {
+                    return false
+                }
+            }
 
-                            $('#noName4').submit(function (o) {
-                                o.preventDefault()
-                                $('#cancelar5').attr('data-dismiss', 'modal')
-                                setTimeout(function () { $('#cancelar5').trigger('click') }, 200)
+            isValid() {
+                let valid = true
 
-                                setTimeout(function () {
-                                    modal = document.getElementById('modal8')
-                                    maqEscrever(modal)
-                                    $("#diag8").modal({ backdrop: 'static', keyboard: false })
-                                    $("#diag8").modal('show')
-                                }, 300)
-                                $('#name5').submit(function (m) {
-                                    m.preventDefault()
-                                    nome = $('#nome3').val()
-                                    console.log(nome)
-                                    sessionStorage.setItem('nome', nome)
-                                    $('#enviar6').attr('data-dismiss', 'modal')
-                                    setTimeout(function () { $('#enviar6').trigger('click') }, 200)
-
-                                    setTimeout(function () {
-                                        modal = document.getElementById('modal9')
-                                        maqEscrever(modal)
-                                        $("#diag9").modal({ backdrop: 'static', keyboard: false })
-                                        $("#diag9").modal('show')
-                                    }, 300)
-                                    $('#name6').submit(function (k) {
-                                        k.preventDefault()
-                                        $('#enviar7').attr('data-dismiss', 'modal')
-                                        setTimeout(function () { $('#enviar7').trigger('click') }, 200)
-                                    })
-                                })
-                            })
-
-                        })
-
-                    })
+                for(let errorText of this.formulario.querySelectorAll('.error-text')) {
+                    errorText.remove()
                 }
 
-            })
+                for(let campo of this.formulario.querySelectorAll('.form-control')) {
+                    
+                    if(!campo.value) {
+                        this.createError(campo, 'Campo Nome não pode estar vazio')
+                        valid = false 
+                    } else {
+                        if(!this.validaNome(campo)) {
+                            valid = false
+                        }
+                    }
 
-        } else if (nome != 'fim') {
-            nome = sessionStorage.getItem('nome')
-            window.open('index2.html', '_self')
+                }
+            }
+
+            validaNome(campo) {
+                const nome = campo.value
+                let valid = true
+
+                if(nome.lenght < 3 || nome.lenght > 12) {
+                    this.createError(campo, 'Nome deve conter entre 3 e 12 caracteres')
+                    valid = false 
+                }
+
+                if(!nome.match(/ˆ[a-zA-Z]+$/g)) {
+                    this.createError(campo, 'Nome deve conter apenas letras')
+                    valid = false 
+                }
+                
+                return valid
+            }
+
+            createError(campo, msg) {
+                const div = document.createElement('div')
+                div.innerText = msg
+                div.setAttribute('class', 'error-text d-block')
+               campo.append(div)
+            }
+
         }
-    } 
-})
+
+        let valida = new ValidaFormulario()
+
+        // Função para conferir se o nome digitado está correto
+        function confereNome() {
+            setTimeout(function () {
+                $('#modal7-2').attr('style', 'opacity: 0;')
+                valorModal('modal7-1')
+                setTimeout(function(){
+                    valorModal('modal7-2')
+                    $('#modal7-1').removeAttr('id')
+                    $('#modal7-2').attr('style', 'opacity: 1;')
+                    efeitoFormulario('names')
+                }, escritaFrase2)
+                entraModal('#diag7')
+            }, 10)
+            clickFormSimples('#name4', '#enviar5')
+        }
+
+        //
+        function modal7() {
+            confereNome()
+            $('#noName4').submit(function (o) {
+                o.preventDefault()
+                saiModal('#cancelar5')
+                // Entra Dialog 8 "Digite seu nome Novamente"
+                modal8()
+            })
+        }
+
+        //
+        function modal8() {
+            concatFunctions('modal8', '#diag8', 'name5')
+            $('#name5').submit(function (e) {
+                e.preventDefault()
+                valida = new ValidaFormulario()
+                nome = $('#nome3').val()
+                console.log(nome)
+                sessionStorage.setItem('nome', nome)
+                saiModal('#enviar6')
+                // Entra Dialog 9 "Seu nome foi corrigido..."
+                ultimoModal()
+            })
+        }
+
+        // Entra e confirma o último Modal (resultado de correção do nome)
+        function ultimoModal() {
+            setTimeout(function () {
+                valorModal('modal9')
+                entraModal('#diag9')
+            }, 300)
+            clickFormSimples('#name6', '#enviar7')
+        }
+        
+        // Função para o efeito Máquina de Escrever dos modais
+        function maqEscrever(el) { // Argumento de 'el' sempre será a let modal e suas variantes
+            const arrayLetrasGeral = el.innerHTML.split('')
+            el.innerHTML = ''
+            arrayLetrasGeral.forEach (function(letra, i) {
+                setTimeout(function() {
+                    el.innerHTML += letra
+                }, escrita * i)
+            })
+        }
+        maqEscrever(modal)
+        
+        function logicaDeIdentificacao() {   
+            // Dialog 3
+            if (nome === "inicio") {
+                $('#noName').submit(function (h) {
+                    h.preventDefault()
+                    $("#diag3").modal('hide')
+                    nome = null
+                    if (nome === 'undefined' || nome === undefined || nome === null || nome === "" || nome === " ") {
+                        // Entra Dialog 4 "Você optou......""
+                        opcaoSemIdentificacao()
+                        // Clique Btn SIM Dialog 4 "Você optou......"
+                        $('#noName2').submit(function (e) {
+                            e.preventDefault()
+                            semIdentificacaoSim()
+                        })
+                        // Clique Btn NÃO Dialog 4 "Você optou......"
+                        $('#noName3').submit(function (e) {
+                            e.preventDefault()
+                            semIdentificacaoNao()
+                        })
+                    } 
+                })
+                $('#name').submit(function (e) {
+                    e.preventDefault()
+                    valida = new ValidaFormulario()
+                    if(valida) {
+                        nome = $('#nome').val()
+                        console.log(nome)
+                        sessionStorage.setItem('nome', nome)
+                        saiModal('#enviar1')
+                        $('#nome_digitado').html(nome)                       
+                        // Entra Dialog 7 "Vc digitou...."
+                        modal7()
+                    }
+                })
+            } else if (nome != 'fim') {
+                nome = sessionStorage.getItem('nome')
+                window.open('index2.html', '_self')
+            }
+        } 
+    })
+}());

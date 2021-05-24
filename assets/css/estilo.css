@@ -129,6 +129,11 @@ body {
 	float: right;
 }
 
+.error-text {
+	color: red;
+	font-size: 10px;
+}
+
 .anime {
 	opacity: 0;
 	animation-name: slide;
@@ -155,7 +160,7 @@ body {
 }
 
 .anime-form{
-	animation: form 1s;
+	animation: form .3s;
 	animation-fill-mode: forwards;
 }
 
@@ -225,8 +230,7 @@ span#modal1::after, span#modal5::after,
 span#modal3-1::after, span#modal3-2::after, 
 span#modal4-1::after, p#modal4-2::after, 
 span#modal6::after, span#modal9::after, 
-span#modal7-1::after, span#nome_digitado::after
-p#modal7-2::after {
+span#modal7-1::after, span#modal7-2::after {
 	content: '|';
 	margin-left: 1px;
 	opacity: 1;
@@ -349,6 +353,9 @@ p.rod {
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
+	form#name {
+		height: 38px;
+	}
 	p.index {
 	   	font-size: 1.2em;
 	}

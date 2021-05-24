@@ -49,7 +49,7 @@
 								</main>
 								<footer class="modal-footer">
 									<form id="first" style="opacity: 0;">
-										<button class="btn btn-secondary" data-dismiss="modal" id="cancelar1">
+										<button id="cancelar1" class="btn btn-secondary" data-dismiss="modal" type="button">
 											Fechar
 										</button>
 									</form>
@@ -82,7 +82,7 @@
 									possa ter uma boa experiência ao navegar pelo conteúdo.<br><br>
 								</main>
 								<footer class="modal-footer">
-									<button class="btn btn-secondary" data-dismiss="modal" id="cancelar2">
+									<button id="cancelar2" class="btn btn-secondary" data-dismiss="modal" type="button">
 										Fechar
 									</button>
 								</footer>
@@ -102,10 +102,9 @@
 								</header>
 								<main class="modal-body input-group">
 									<span id="modal3-1">Para que sua experiência seja incrível, digite seu nome:</span><br><br>
-									<form id="name" class="input-group-prepend" style="width: 100%; opacity: 0;" action="" method="get"><span
-											class="input-group-text d-flex">Nome</span>
-										<input id="nome" name="nome" class="form-control d-block"
-											type="text" placeholder="Digite seu nome aqui" />
+									<form id="name" class="input-group-prepend" style="width: 100%; opacity: 0;" action="" method="get">
+										<span class="input-group-text d-flex">Nome</span>
+										<input id="nome" name="nome" class="form-control d-block" type="text" placeholder="Digite seu nome aqui" />
 										<button class="btn btn-success d-flex ml-auto" type="submit" value="true"
 											id="enviar1">Enviar</button>
 									</form>
@@ -132,23 +131,18 @@
 									<h5>Abner pergunta:</h5>
 								</header>
 								<main class="modal-body input-group">
-									<span style="width: 100%;" id="modal4-1">Você optou por não digitar seu nome.</span><br><br>
-									
-									<p id="modal4-2">Tem certeza que deseja continuar sem se identificar?</p><br>
-
+									<span id="modal4-1" style="width: 100%;">Você optou por não digitar seu nome.</span><br><br>
+									<p id="modal4-2">Tem certeza que deseja continuar sem se identificar?</p>
 								</main>
 								<footer class="modal-footer">
-									<div id="noNames" style="opacity: 0;">
+									<div id="noNames" class="input-group-prepend" style="opacity: 0;">
 										<Form id="noName3" class="d-flex ml-auto">
-											<button class="btn btn-secondary" type="submit" value="true"
-												id="cancelar4">Não</button>
+											<button  id="cancelar4" class="btn btn-secondary" type="submit" value="true">Não</button>
 										</Form>
-	
 										<Form id="noName2" class="d-flex ml-2">
-											<button class="btn btn-success" type="submit" value="true" id="enviar2">Sim</button>
+											<button id="enviar2" class="btn btn-success" type="submit" value="true">Sim</button>
 										</Form>
 									</div>
-
 								</footer>
 							</div>
 						</div>
@@ -166,15 +160,12 @@
 								</header>
 								<main class="modal-body input-group">
 									<span id="modal5">Então digite seu nome:</span><br><br>
-								<form id="name2" class="input-group-prepend" style="opacity: 0;">
+									<form id="name2" class="input-group-prepend" style="width: 100%; opacity: 0;" action="" method="get">
 										<span class="input-group-text d-flex">Nome</span>
-										<input style="width: 100%;" id="nome2" name="nome" class="form-control d-flex"
-											type="text" placeholder="Digite seu nome aqui" />
-									
+										<input id="nome2" name="nome" class="form-control d-block" type="text" placeholder="Digite seu nome aqui" />
 								</main>
 								<footer class="modal-footer d-block">
-									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
-										id="enviar3">Enviar</button>
+									<button id="enviar3" class="btn btn-success d-block ml-auto" type="submit" value="true">Enviar</button>
 								</form>
 								</footer>
 							</div>
@@ -196,8 +187,7 @@
 								</main>
 								<footer class="modal-footer d-block">
 									<form id="name3">
-										<button class="btn btn-success d-block ml-auto" type="submit" value="true"
-											id="enviar4">
+										<button id="enviar4" class="btn btn-success d-block ml-auto" type="submit" value="true">
 											<a style="color: white; text-decoration: none;" href="index2.html">OK</a>
 										</button>
 									</form>
@@ -216,29 +206,20 @@
 								<header class="modal-header">
 									<h5>Abner pergunta:</h5>
 								</header>
-								<main class="modal-body input-group">
-									<p style="height: 18px;"><span id="modal7-1">Você digitou:</span>&nbsp;</p>
-									<em><strong><span id="nome_digitado" class="d-block" style="height: 18px; width: 80%;"></span></strong></em><span>.</span><br><br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<p id="modal7-2" class="d-block">Seu nome está correto?</p><br>
-
+								<main class="modal-body">
+									<span id="modal7-1" style="width: 23%;">Você digitou:</span>&nbsp;<em><strong><span id="nome_digitado" style="width: 77%;"></span></strong></em>.<br><br>
+									<span id="modal7-2" style="width: 100%;">Seu nome está correto?</span><br>
 								</main>
-								<footer class="modal-footer">									
-									<div id="names" class="anime-form input-group-prepend" style="opacity: 0;">
+								<footer class="modal-footer">
+									<div id="names" class="input-group-prepend" style="opacity: 0;">
 										<Form id="noName4" class="d-flex ml-auto">
-											<button class="btn btn-secondary" type="submit" value="true"
-												id="cancelar5">Não</button>
+											<button  id="cancelar5" class="btn btn-secondary" type="submit" value="true">Não</button>
 										</Form>
-	
 										<Form id="name4" class="d-flex ml-2">
-											<button class="btn btn-success" type="submit" value="true" id="enviar5">
+											<button id="enviar5" class="btn btn-success" type="submit" value="true">
 												<a style="color: white; text-decoration: none;" href="index2.html">Sim</a>
 											</button>
-										</form>
+										</Form>
 									</div>
 								</footer>
 							</div>
@@ -257,16 +238,14 @@
 								</header>
 								<main class="modal-body input-group">
 									<span id="modal8">Digite seu nome novamente:</span><br><br>
-									<form id="name5" class="input-group-prepend d-flex" action="" method="get"><span
-											class="input-group-text d-flex">Nome</span>
-										<input style="width: 100%;" id="nome3" name="nome" class="form-control d-flex"
-											type="text" placeholder="Digite seu nome aqui" />
+									<form id="name5" class="input-group-prepend" style="width: 100%; opacity: 0;" action="" method="POST">
+										<span class="input-group-text d-flex">Nome</span>
+										<input id="nome3" name="nome" class="form-control d-block" type="text" placeholder="Digite seu nome aqui" />
 								</main>
 								<footer class="modal-footer d-block">
-									<button class="btn btn-success d-block ml-auto" type="submit" value="true"
-										id="enviar6">Enviar</button>
-								</footer>
+									<button id="enviar6" class="btn btn-success d-block ml-auto" type="submit" value="true">Enviar</button>
 								</form>
+								</footer>			
 							</div>
 						</div>
 					</div>
