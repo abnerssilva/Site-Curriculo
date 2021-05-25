@@ -129,11 +129,6 @@ body {
 	float: right;
 }
 
-.error-text {
-	color: red;
-	font-size: 10px;
-}
-
 .anime {
 	opacity: 0;
 	animation-name: slide;

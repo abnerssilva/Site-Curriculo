@@ -225,6 +225,7 @@
                 if(checkFields) {
                     e.preventDefault()
                     nome = this.input.val()
+                    this.input.attr('class', "form-control d-block is-valid")
                     console.log(nome)
                     sessionStorage.setItem('nome', nome)
                     $('#nome_digitado').html(nome)
@@ -235,7 +236,7 @@
                  
                 let valid = true
 
-                for(let errorText of this.modalBody.querySelectorAll('.error-text')) {
+                for(let errorText of this.modalBody.querySelectorAll('.invalid-feedback')) {
                     errorText.remove()
                 }
 
@@ -243,6 +244,7 @@
                     
                     if(!campo.value) {
                         campo.focus()
+                        campo.setAttribute('class', "form-control d-block is-invalid")
                         this.createError(campo, 'Campo Nome não pode estar vazio')
                         valid = false 
                     } else {
@@ -251,7 +253,7 @@
                                 campo.value = ''
                             }, 10)
                             valid = false
-                        }
+                        } 
                     }
 
                 }
@@ -264,22 +266,24 @@
 
                 if(nome.length < 3 || nome.length > 12) {
                     campo.focus()
+                    campo.setAttribute('class', "form-control d-block is-invalid")
                     this.createError(campo, 'Nome deve conter entre 3 e 12 caracteres')
                     valid = false                     
-                }
+                } 
 
                 if(!nome.match(/[a-zA-Z]/g)) {                   
                     campo.focus()
+                    campo.setAttribute('class', "form-control d-block is-invalid")
                     this.createError(campo, 'Nome deve conter apenas letras')
                     valid = false 
-                }
+                } 
                 return valid
             }
 
             createError(campo, msg) {
                 const div = document.createElement('div')
                 div.innerHTML = msg
-                div.setAttribute('class', 'error-text d-block')
+                div.setAttribute('class', 'invalid-feedback d-block')
                 div.setAttribute('style', 'width: 100%;')
                 this.formulario.after(div)
             }
