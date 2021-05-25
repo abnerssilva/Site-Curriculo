@@ -230,7 +230,8 @@ span#modal1::after, span#modal5::after,
 span#modal3-1::after, span#modal3-2::after, 
 span#modal4-1::after, p#modal4-2::after, 
 span#modal6::after, span#modal9::after, 
-span#modal7-1::after, span#modal7-2::after {
+span#modal7-1::after, span#modal7-2::after,
+span#nome_digitado::after {
 	content: '|';
 	margin-left: 1px;
 	opacity: 1;

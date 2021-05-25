@@ -11,8 +11,7 @@
         let modal = document.getElementById('modal1')
         let efeitosForm = document.getElementById('first')
         const escrita = 60
-        const escritaFrase2 = modal.innerText.length * (escrita - 15)
-        
+        const escritaFrase2 = modal.innerText.length * (escrita - 20)
 
         // Forçar nome 'inicio' caso não exista nenhum nome gravado no Storage da sessão
         if(!nome){
@@ -76,7 +75,7 @@
             setTimeout(function(){
                 efeitosForm = document.getElementById(idForm)
                 entraClasse()
-            }, escritaFrase2)
+            }, 2000)
         }
 
         // Função que concatena as três anteriores para limpar o código
@@ -108,7 +107,7 @@
             setTimeout(() => {
                 entraClasse()
             }, escritaFrase2)    
-        }, 500)
+        }, 100)
 
         // Condição inicial exclusiva para navegador Safari
         function navegadorSafari() {
@@ -189,26 +188,27 @@
             // Sai Dialod 4 "Você optou......"
             saiModal('#cancelar4')
             // Entra dialog 5 "Então Digite seu nome"
-            valida = new ValidaFormulario()
+            valida = new ValidaFormulario('modalBody5', 'name2', '#nome2')
             concatFunctions('modal5', '#diag5', 'name2')
             $('#name2').submit(function (e) {
                 e.preventDefault()
-                valida = new ValidaFormulario()
-                nome = $('#nome2').val()
-                console.log(nome)
-                sessionStorage.setItem('nome', nome)
-                // Sai Dialog 5 "Então Digite seu nome"
-                saiModal('#enviar3')
-                $('#nome_digitado').html(nome)
-                // Entra Dialog 7 "Vc digitou...."
-                modal7()
+                nome = sessionStorage.getItem('nome')
+                if (!nome == '' || !nome == ' ') {
+                    // Sai Dialog 5 "Então Digite seu nome"
+                    saiModal('#enviar3')
+                    // Entra Dialog 7 "Vc digitou...."
+                    modal7()     
+                }              
             })
         }
 
         // Validar formulario de digitação de nomes
         class ValidaFormulario {
-            constructor(){
-                this.formulario = document.querySelector('#name')
+            constructor(idModalBody, idForm, hashtagIdInput){
+                this.modalBody = document.getElementById(idModalBody)
+                this.formulario = document.getElementById(idForm)
+                this.input = $(hashtagIdInput)
+                let nome = this.input
                 this.eventos()
             }
 
@@ -218,77 +218,98 @@
                 })
             }
 
-            handleSubmit(e) {
+            handleSubmit(e, hashtagIdBotao) {
                 e.preventDefault()
                 const checkFields = this.isValid()
 
-                if(!checkFields) {
-                    return false
-                }
+                if(checkFields) {
+                    e.preventDefault()
+                    nome = this.input.val()
+                    console.log(nome)
+                    sessionStorage.setItem('nome', nome)
+                    $('#nome_digitado').html(nome)
+                } 
             }
 
             isValid() {
+                 
                 let valid = true
 
-                for(let errorText of this.formulario.querySelectorAll('.error-text')) {
+                for(let errorText of this.modalBody.querySelectorAll('.error-text')) {
                     errorText.remove()
                 }
 
                 for(let campo of this.formulario.querySelectorAll('.form-control')) {
                     
                     if(!campo.value) {
+                        campo.focus()
                         this.createError(campo, 'Campo Nome não pode estar vazio')
                         valid = false 
                     } else {
                         if(!this.validaNome(campo)) {
+                            setTimeout(() => {
+                                campo.value = ''
+                            }, 10)
                             valid = false
                         }
                     }
 
                 }
+                return valid
             }
 
             validaNome(campo) {
-                const nome = campo.value
+                let nome = campo.value
                 let valid = true
 
-                if(nome.lenght < 3 || nome.lenght > 12) {
+                if(nome.length < 3 || nome.length > 12) {
+                    campo.focus()
                     this.createError(campo, 'Nome deve conter entre 3 e 12 caracteres')
-                    valid = false 
+                    valid = false                     
                 }
 
-                if(!nome.match(/ˆ[a-zA-Z]+$/g)) {
+                if(!nome.match(/[a-zA-Z]/g)) {                   
+                    campo.focus()
                     this.createError(campo, 'Nome deve conter apenas letras')
                     valid = false 
                 }
-                
                 return valid
             }
 
             createError(campo, msg) {
                 const div = document.createElement('div')
-                div.innerText = msg
+                div.innerHTML = msg
                 div.setAttribute('class', 'error-text d-block')
-               campo.append(div)
+                div.setAttribute('style', 'width: 100%;')
+                this.formulario.after(div)
             }
 
         }
 
-        let valida = new ValidaFormulario()
+        let valida = new ValidaFormulario('modalBody3', 'name', '#nome', '#enviar1')
 
         // Função para conferir se o nome digitado está correto
         function confereNome() {
             setTimeout(function () {
+                console.log(escritaFrase2)
                 $('#modal7-2').attr('style', 'opacity: 0;')
-                valorModal('modal7-1')
-                setTimeout(function(){
-                    valorModal('modal7-2')
-                    $('#modal7-1').removeAttr('id')
-                    $('#modal7-2').attr('style', 'opacity: 1;')
-                    efeitoFormulario('names')
-                }, escritaFrase2)
+                $('#nome_digitado').attr('style', 'opacity: 0;')
                 entraModal('#diag7')
-            }, 10)
+                valorModal('modal7-1')
+                setTimeout(function(){   
+                    console.log(escritaFrase2)                 
+                    valorModal('nome_digitado')
+                    $('#modal7-1').removeAttr('id')
+                    $('#nome_digitado').attr('style', 'opacity: 1;')
+                    setTimeout(function() {
+                        console.log(escritaFrase2)
+                        valorModal('modal7-2')
+                        $('#nome_digitado').removeAttr('id')
+                        $('#modal7-2').attr('style', 'opacity: 1;')   
+                    }, escritaFrase2 / 5)
+                }, escritaFrase2 / 5)  
+            }, 100)
+            efeitoFormulario('names')
             clickFormSimples('#name4', '#enviar5')
         }
 
@@ -297,6 +318,7 @@
             confereNome()
             $('#noName4').submit(function (o) {
                 o.preventDefault()
+                sessionStorage.clear()
                 saiModal('#cancelar5')
                 // Entra Dialog 8 "Digite seu nome Novamente"
                 modal8()
@@ -305,24 +327,24 @@
 
         //
         function modal8() {
+            valida = new ValidaFormulario('modalBody8', 'name5', '#nome3')
             concatFunctions('modal8', '#diag8', 'name5')
             $('#name5').submit(function (e) {
                 e.preventDefault()
-                valida = new ValidaFormulario()
-                nome = $('#nome3').val()
-                console.log(nome)
-                sessionStorage.setItem('nome', nome)
-                saiModal('#enviar6')
-                // Entra Dialog 9 "Seu nome foi corrigido..."
-                ultimoModal()
+                nome = sessionStorage.getItem('nome')
+                if (!nome == '' || !nome == ' ') {
+                    // Sai Dialog 8
+                    saiModal('#enviar6')
+                     // Entra Dialog 9 "Seu nome foi corrigido..."
+                    ultimoModal()    
+                } 
             })
         }
 
         // Entra e confirma o último Modal (resultado de correção do nome)
         function ultimoModal() {
             setTimeout(function () {
-                valorModal('modal9')
-                entraModal('#diag9')
+                concatFunctions('modal9', '#diag9', 'name6')
             }, 300)
             clickFormSimples('#name6', '#enviar7')
         }
@@ -362,17 +384,14 @@
                     } 
                 })
                 $('#name').submit(function (e) {
-                    e.preventDefault()
-                    valida = new ValidaFormulario()
-                    if(valida) {
-                        nome = $('#nome').val()
-                        console.log(nome)
-                        sessionStorage.setItem('nome', nome)
+                    valida = new ValidaFormulario('modalBody3', 'name', '#nome')
+                    nome = sessionStorage.getItem('nome')
+                    if (!nome == '' || !nome == ' ') {
+                        //  Sai Dialog 3
                         saiModal('#enviar1')
-                        $('#nome_digitado').html(nome)                       
                         // Entra Dialog 7 "Vc digitou...."
-                        modal7()
-                    }
+                        modal7()     
+                    }              
                 })
             } else if (nome != 'fim') {
                 nome = sessionStorage.getItem('nome')
