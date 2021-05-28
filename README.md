@@ -4,10 +4,10 @@ Desenvolvi um currículo web usando HTML5, CCS3 e JS para enviar aos recrutadore
 
 Vou melhorando o layout e o código assim que meus conhecimentos vão avançando!
 
-Versão 1 - Lançado em 01/03/2021.
+Versão v1.0 - Lançado em 01/03/2021.
 
-Versão 1.1 - Lançado em 15/04/2021.
+Versão v1.1 - Lançado em 15/04/2021.
 
-Versão 1.2 - Lançado em 15/05/2021.
+Versão v1.2 - Lançado em 15/05/2021.
 
-Versão 1.3 - em desenvolvimento. (A construção pode ser visualizada na branch 'next-version-development').
+Versão v1.3 - em desenvolvimento. (A construção pode ser visualizada na branch 'next-version-development').
