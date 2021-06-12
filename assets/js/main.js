@@ -7,7 +7,7 @@
     $(document).ready(function () {
 
         // Constantes e Variáveis
-        let nome = sessionStorage.getItem('nome')
+        let nome = localStorage.getItem('nome')
         let modal = document.getElementById('modal1')
         let efeitosForm = document.getElementById('first')
         const escrita = 60
@@ -16,10 +16,16 @@
         // Forçar nome 'inicio' caso não exista nenhum nome gravado no Storage da sessão
         if(!nome){
             nome = 'inicio'
-            console.log(nome)
+            dialogBoasVindas()
+        } else {
+            nome = localStorage.getItem('nome')
+            if (!nome == '' || !nome == ' ') {
+                $('#nome_resgatado').html(nome + '?')
+                modal0()
+            }     
         }
 
-        // Identiificação de Navegadores
+        // Identificação de Navegadores
         let navegadores = "";
 
         if (navegadores = navigator.userAgent.toLowerCase().indexOf('op') > -1) {
@@ -101,14 +107,52 @@
             })
         }
 
-        // Entrada da Primeira Dialog
-        setTimeout(function () {
-            entraModal('#diag1')
-            setTimeout(() => {
-                entraClasse()
-            }, escritaFrase2)    
-        }, 100)
 
+
+        // Função para resgatar nome do Storage
+       function resgataNome() {
+            setTimeout(function () {
+                $('#modal0-2').attr('style', 'opacity: 0;')
+                $('#nome_resgatado').attr('style', 'opacity: 0;')
+                entraModal('#diag0')
+                valorModal('modal0-1')
+                setTimeout(function(){                 
+                    valorModal('modal0-2')
+                    $('#modal0-1').removeAttr('id')
+                    $('#modal0-2').attr('style', 'opacity: 1;') 
+                    setTimeout(function() {
+                        valorModal('nome_resgatado')
+                        $('#modal0-2').removeAttr('id')
+                        $('#nome_resgatado').attr('style', 'opacity: 1;')  
+                    }, escritaFrase2 / 5)
+                }, escritaFrase2 / 2)  
+            }, 100)
+            efeitoFormulario('verificaNome')
+            clickFormSimples('#name0', '#enviar0')
+        }
+
+        //
+        function modal0() {
+            resgataNome()
+            $('#noName0').submit(function (e) {
+                localStorage.clear()
+                saiModal('#cancelar0')
+            })
+        }
+
+
+        // Entrada da Primeira Dialog de identificação, se necessário
+        function dialogBoasVindas() {
+            setTimeout(function () {
+                valorModal('modal1')
+                entraModal('#diag1')
+                setTimeout(() => {                  
+                    efeitoFormulario('first')
+                }, escritaFrase2)    
+            }, 100)   
+        }
+        
+        
         // Condição inicial exclusiva para navegador Safari
         function navegadorSafari() {
             nome = 'fim'
@@ -174,7 +218,7 @@
         function semIdentificacaoSim() {
             nome = 'Recrutador(a)'
             console.log(nome)
-            sessionStorage.setItem('nome', nome)
+            localStorage.setItem('nome', nome)
             // Sai Dialod 4 "Você optou......"
             saiModal('#enviar2')
             // Entra Dialog 6 "Que pena....."
@@ -192,7 +236,7 @@
             concatFunctions('modal5', '#diag5', 'name2')
             $('#name2').submit(function (e) {
                 e.preventDefault()
-                nome = sessionStorage.getItem('nome')
+                nome = localStorage.getItem('nome')
                 if (!nome == '' || !nome == ' ') {
                     // Sai Dialog 5 "Então Digite seu nome"
                     saiModal('#enviar3')
@@ -227,7 +271,7 @@
                     nome = this.input.val()
                     this.input.attr('class', "form-control d-block is-valid")
                     console.log(nome)
-                    sessionStorage.setItem('nome', nome)
+                    localStorage.setItem('nome', nome)
                     $('#nome_digitado').html(nome)
                 } 
             }
@@ -322,7 +366,7 @@
             confereNome()
             $('#noName4').submit(function (o) {
                 o.preventDefault()
-                sessionStorage.clear()
+                localStorage.clear()
                 saiModal('#cancelar5')
                 // Entra Dialog 8 "Digite seu nome Novamente"
                 modal8()
@@ -335,7 +379,7 @@
             concatFunctions('modal8', '#diag8', 'name5')
             $('#name5').submit(function (e) {
                 e.preventDefault()
-                nome = sessionStorage.getItem('nome')
+                nome = localStorage.getItem('nome')
                 if (!nome == '' || !nome == ' ') {
                     // Sai Dialog 8
                     saiModal('#enviar6')
@@ -389,7 +433,7 @@
                 })
                 $('#name').submit(function (e) {
                     valida = new ValidaFormulario('modalBody3', 'name', '#nome')
-                    nome = sessionStorage.getItem('nome')
+                    nome = localStorage.getItem('nome')
                     if (!nome == '' || !nome == ' ') {
                         //  Sai Dialog 3
                         saiModal('#enviar1')
@@ -398,7 +442,7 @@
                     }              
                 })
             } else if (nome != 'fim') {
-                nome = sessionStorage.getItem('nome')
+                nome = localStorage.getItem('nome')
                 window.open('index2.html', '_self')
             }
         } 
