@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////////// LÓGICA AJAX E ANIMAÇÕES //////////////////////////////////////////////////////////////////////////////
 
   // Lógica 1 - Recupera dado de nome do DB local do navegador
-  let nome = sessionStorage.getItem('nome')
+  let nome = localStorage.getItem('nome')
         
   // Lógica 2 - Dia index
   let data =  new Date();
