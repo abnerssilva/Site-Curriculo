@@ -92,9 +92,9 @@ body {
 
 .img-size-4 {
 	width: 100px;
-	height: 150px;
+	height: 120px;
 	padding-left: 10px;
-	padding-top: 60px;
+	padding-top: 30px;
 	display: inline;
 	float: left;
 }
@@ -333,7 +333,7 @@ p.formacao {
 	display: inline;
 	margin-bottom: 10px;
 	float: left;
-	padding: 80px 10px;
+	padding: 50px 10px;
 }
 
 p.experiencia {
